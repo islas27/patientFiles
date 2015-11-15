@@ -5,3 +5,261 @@
 #   email: bob@gmail.com
 #   password: secret
 #   fullname: Bob
+
+Etiqueta(E1):
+    name: BCG
+    label: BCG
+    tipo: Inmunizacion
+
+Etiqueta(E2):
+    name: DPTT
+    label: DPTT
+    tipo: Inmunizacion
+
+Etiqueta(E3):
+    name: SABIN
+    label: SABIN
+    tipo: Inmunizacion
+
+Etiqueta(E4):
+    name: ANTISARAMPION
+    label: ANTISARAMPION
+    tipo: Inmunizacion
+
+Etiqueta(E5):
+    name: HEPATITIS
+    label: HEPATITIS
+    tipo: Inmunizacion
+
+Etiqueta(E6):
+    name: Otras
+    label: Otras
+    tipo: Inmunizacion
+
+
+Etiqueta(E7):
+    name: Tabaquismo
+    label: Tabaquismo
+    tipo: Adiccion
+
+Etiqueta(E8):
+    name: Alcoholismo
+    label: Alcoholismo
+    tipo: Adiccion
+
+Etiqueta(E9):
+    name: Farmacodependiente
+    label: Farmacodependiente
+    tipo: Adiccion
+
+
+Etiqueta(E10):
+    name: Asma
+    label: Asma
+    tipo: Patologico
+
+Etiqueta(E11):
+    name: Fiebre_de_Heno
+    label: Fiebre de Heno
+    tipo: Patologico
+
+Etiqueta(E12):
+    name: Tuberculosis
+    label: Tuberculosis
+    tipo: Patologico
+
+Etiqueta(E13):
+    name: Fiebre_Reumatica
+    label: Fiebre Reumatica
+    tipo: Patologico
+
+Etiqueta(E14):
+    name: Fiebre_Escarlata
+    label: Fiebre Escarlata
+    tipo: Patologico
+
+Etiqueta(E15):
+    name: Soplo_en_el_Corazon
+    label: Soplo en el Corazon
+    tipo: Patologico
+
+Etiqueta(E16):
+    name: Enfermedad_Cardiaca
+    label: Enfermedad Cardiaca
+    tipo: Patologico
+
+Etiqueta(E17):
+    name: Infarto_de_Corazon
+    label: Infarto de Corazon
+    tipo: Patologico
+
+Etiqueta(E18):
+    name: Dificultad_de_subir_escaleras
+    label: Dificultad de subir escaleras
+    tipo: Patologico
+
+Etiqueta(E19):
+    name: Angina_de_Pecho
+    label: Angina de Pecho
+    tipo: Patologico
+
+Etiqueta(E20):
+    name: Paralisis
+    label: Paralisis
+    tipo: Patologico
+
+Etiqueta(E21):
+    name: Presion_Alta
+    label: Presion Alta
+    tipo: Patologico
+
+Etiqueta(E22):
+    name: Presion_Baja
+    label: Presion Baja
+    tipo: Patologico
+
+Etiqueta(E23):
+    name: Anemia
+    label: Anemia
+    tipo: Patologico
+
+Etiqueta(E24):
+    name: Alergias
+    label: Alergias
+    tipo: Patologico
+
+Etiqueta(E25):
+    name: Ulceras
+    label: Ulceras
+    tipo: Patologico
+
+Etiqueta(E26):
+    name: Artritis
+    label: Artritis
+    tipo: Patologico
+
+Etiqueta(E27):
+    name: Hemorragias_Frecuentes
+    label: Hemorragias Frecuentes
+    tipo: Patologico
+
+Etiqueta(E28):
+    name: Sangrado_al_Toser
+    label: Sangrado al Toser
+    tipo: Patologico
+
+Etiqueta(E29):
+    name: Manchas_en_Piel
+    label: Manchas en Piel
+    tipo: Patologico
+
+Etiqueta(E30):
+    name: Moretones_Facilmente
+    label: Moretones Facilmente
+    tipo: Patologico
+
+Etiqueta(E31):
+    name: Reumatismo
+    label: Reumatismo
+    tipo: Patologico
+
+Etiqueta(E32):
+    name: Cefalea_Frequente
+    label: Cefalea Frequente
+    tipo: Patologico
+
+Etiqueta(E33):
+    name: Enfermedades_Venereas
+    label: Enfermedades Venereas
+    tipo: Patologico
+
+Etiqueta(E34):
+    name: Enfermedad_de_Rinion_Higado
+    label: Enfermedad de Rinion Higado
+    tipo: Patologico
+
+Etiqueta(E35):
+    name: Hepatitis
+    label: Hepatitis
+    tipo: Patologico
+
+Etiqueta(E36):
+    name: Diabetes
+    label: Diabetes
+    tipo: Patologico
+
+Etiqueta(E37):
+    name: Tobillos_Inflamados
+    label: Tobillos Inflamados
+    tipo: Patologico
+
+Etiqueta(E38):
+    name: Nerviosismo
+    label: Nerviosismo
+    tipo: Patologico
+
+Etiqueta(E39):
+    name: Deficiencia_vitaminica
+    label: Deficiencia vitaminica
+    tipo: Patologico
+
+Etiqueta(E40):
+    name: Desmayos
+    label: Desmayos
+    tipo: Patologico
+
+Etiqueta(E41):
+    name: Epilepsia_Convulsiones
+    label: Epilepsia o Convulsiones
+    tipo: Patologico
+
+Etiqueta(E42):
+    name: Cataratas_Glaucoma
+    label: Cataratas o Glaucoma
+    tipo: Patologico
+
+Etiqueta(E43):
+    name: Coagulacion_Lenta
+    label: Coagulacion Lenta
+    tipo: Patologico
+
+Etiqueta(E44):
+    name: Dificultad_para_tragar
+    label: Dificultad para tragar
+    tipo: Patologico
+
+Etiqueta(E45):
+    name: Enfermedad_de_la_Tiroides
+    label: Enfermedad de la Tiroides
+    tipo: Patologico
+
+Etiqueta(E46):
+    name: Radioterapia
+    label: Radioterapia
+    tipo: Patologico
+
+Etiqueta(E47):
+    name: Tratamiento_Psiquiatrico
+    label: Tratamiento Psiquiatrico
+    tipo: Patologico
+
+Etiqueta(E48):
+    name: Seropositivo_(VIH)
+    label: Seropositivo (VIH)
+    tipo: Patologico
+
+Etiqueta(E49):
+    name: Quimioterapia_(Cancer/Leucemia)
+    label: Quimioterapia (Cancer/Leucemia)
+    tipo: Patologico
+
+Etiqueta(E50):
+    name: Problemas en intestino (parasitos)
+    label: Problemas en intestino (parasitos)
+    tipo: Patologico
+
+Etiqueta(E51):
+    name: Sigue_Alguna_dieta
+    label: Sigue Alguna dieta
+    tipo: Patologico
+
