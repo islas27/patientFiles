@@ -1,0 +1,27 @@
+<nav class="navbar navbar-dark bg-inverse">
+      <div class="container">
+        <a class="navbar-brand" href="@{Application.index}">
+          <span class="icon-logo"></span>
+          <span class="sr-only">PatientFiles</span>
+        </a>
+        <a class="navbar-toggler hidden-md-up pull-right" data-toggle="collapse" href="#collapsingNavbarInverse" aria-expanded="false" aria-controls="collapsingNavbarInverse">
+        &#9776;
+      </a>
+        <a class="navbar-toggler navbar-toggler-custom hidden-md-up pull-right" data-toggle="collapse" href="#collapsingMobileUserInverse" aria-expanded="false" aria-controls="collapsingMobileUserInverse">
+          <span class="icon-user"></span>
+        </a>
+        <div id="collapsingNavbarInverse" class="collapse navbar-toggleable-custom" role="tabpanel" aria-labelledby="collapsingNavbarInverse">
+          <ul class="nav navbar-nav pull-right">
+            <li class="nav-item nav-item-toggable active">
+              <a class="nav-link" href="@{Application.plansPayments}">Planes <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item nav-item-toggable">
+              <a class="nav-link" href="@{Application.newDentist}">Registro</a>
+            </li>
+            <li class="nav-item nav-item-toggable">
+              <a class="nav-link" href="#">Iniciar Sesión</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>

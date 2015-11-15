@@ -1,17 +1,71 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="${_response_encoding}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>#{get 'title' /}</title>
+    <meta name="description" content="Sitio web para la administración de pacientes de los odontologos"/>
+    <meta name="keywords" content="pacientes dentistas administracion archivo clinico"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="img/favicon/manifest.json">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#663fb5">
+    <meta name="msapplication-TileImage" content="img/favicon/mstile-144x144.png">
+    <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#663fb5">
+    <link rel="stylesheet" href="@{'/public/css/ls/animate.min.css'}">
+    <link rel="stylesheet" href="@{'/public/css/ls/landio.css'}">
 
-<html>
-    <head>
-        <title>#{get 'title' /}</title>
-        <meta charset="${_response_encoding}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-        #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-    </head>
-    <body>
-        #{doLayout /}
-        
-        <script src="@{'/public/javascripts/jquery-1.6.4.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-        #{get 'moreScripts' /}
-    </body>
+    #{get 'moreStyles' /}
+
+</head>
+
+<body>
+
+    #{doLayout /}
+
+    <footer class="section-footer bg-inverse" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-5">
+                    <div class="media">
+                        <div class="media-left">
+                            <span class="media-object icon-logo display-1"></span>
+                        </div>
+                        <small class="media-body media-bottom">
+                            &copy; PatientFiles 2015. <br>
+                            Diseñado por Baruch Sias & Mario Luján. Desarrollado por Jonathan Islas & Jesús García,
+                            exclusivo para PatientFiles.
+                        </small>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-7">
+                    <ul class="list-inline m-b-0">
+                        <li><a href="@{Application.plansPayments}">Planes</a></li>
+                        <li><a href="#">Regístrate</a></li>
+                        <li><a href="#">Inicar Sesión</a></li>
+                        <li class="active"><a class="scroll-top" href="#top">Ir Para Arriba<span
+                                class="icon-caret-up"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="@{'/public/js/ls/landio.min.js'}"></script>
+#{get 'moreScripts' /}
+</body>
 </html>
