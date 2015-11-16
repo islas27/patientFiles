@@ -5,3 +5,5 @@ require:
     - play -> crud
     - play -> morphia 1.2.12
     - play -> securesocial 0.2.6
+    - play -> deadbolt 1.5.4
+

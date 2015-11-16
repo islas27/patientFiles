@@ -1,5 +1,8 @@
 #{extends 'main.html'/}
 #{set title:'PatientFiles | Bienvenida'/}
+
+<!--=========================PAGE CONTENT========================-->
+
     <nav class="navbar navbar-dark bg-inverse bg-inverse-custom navbar-fixed-top">
       <div class="container">
           <div id="collapsingNavbar" class="collapse navbar-toggleable-custom" role="tabpanel" aria-labelledby="collapsingNavbar">
@@ -8,7 +11,7 @@
               <a class="nav-link" href="@{Application.plansPayments}">Planes</a>
             </li>
             <li class="nav-item nav-item-toggable">
-              <a class="nav-link" href="#">Regístrate</a>
+              <a class="nav-link" href="@{Application.newDentist}">Regístrate</a>
             </li>
             <li class="nav-item nav-item-toggable">
               <a class="nav-link" href="#">Inicar Sesión</a>
@@ -37,12 +40,7 @@
       <div class="container">
         <h1 class="display-3">Patient Files</h1>
         <h2 class="m-b-lg">No más expedientes perdidos, <em>precios accesibles</em><a href="ui-elements.html" class="jumbolink">, la información es poder</a>.</h2>
-        <a class="btn btn-secondary-outline m-b-md" href="#" role="button">Regístrate</a>
-        <!--<ul class="list-inline social-share">
-          <li><a class="nav-link" href="#"><span class="icon-twitter"></span> 1024</a></li>
-          <li><a class="nav-link" href="#"><span class="icon-facebook"></span> 562</a></li>
-          <li><a class="nav-link" href="#"><span class="icon-linkedin"></span> 356</a></li>
-        </ul>-->
+        <a class="btn btn-secondary-outline m-b-md" href="@{Application.newDentist}" role="button">Regístrate</a>
       </div>
     </header>
     <section class="section-intro bg-faded text-center hidden-overflow">
@@ -96,7 +94,7 @@
           <div class="col-md-4 p-t-md wp wp-5">
             <div class="card pricing-box">
               <div class="card-header text-uppercase">
-                  <p><img src="@{'public/PNG/16px/0001-home.png'}"/></p>
+                  <p><img src="@{'public/png/16px/0001-home.png'}"/></p>
                 Personal
               </div>
               <div class="card-block">
@@ -107,7 +105,6 @@
               </div>
               <ul class="list-group list-group-flush p-x">
                 <li class="list-group-item">Registro de 10 pacientes por mes</li>
-                <!--<li class="list-group-item">Lectura de expedientes referenciados</li>-->
                 <li class="list-group-item">Procedimientos/Citas ilimitadas</li>
               </ul>
               <a href="#" class="btn btn-primary-outline">Empieza Ahora</a>
@@ -116,7 +113,7 @@
           <div class="col-md-4 stacking-top">
             <div class="card pricing-box pricing-best p-x-0">
               <div class="card-header text-uppercase">
-                  <p><img src="@{'public/PNG/16px/0003-home3.png'}"/></p>
+                  <p><img src="@{'public/png/16px/0003-home3.png'}"/></p>
                 Profesional
               </div>
               <div class="card-block">
@@ -137,7 +134,7 @@
           <div class="col-md-4 p-t-md wp wp-6">
             <div class="card pricing-box">
               <div class="card-header text-uppercase">
-                  <p><img src="@{'public/PNG/16px/0004-office.png'}"/></p>
+                  <p><img src="@{'public/png/16px/0004-office.png'}"/></p>
                 Profesional Plus
               </div>
               <div class="card-block">

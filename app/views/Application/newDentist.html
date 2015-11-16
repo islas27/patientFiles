@@ -1,70 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>PatientFiles | Registro</title>
-    <meta name="description" content="A free HTML template and UI Kit built on Bootstrap" />
-    <meta name="keywords" content="free html template, bootstrap, ui kit, sass" />
-    <meta name="author" content="Peter Finlan and Taty Grassini Codrops" />
-    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="img/favicon/android-chrome-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="img/favicon/manifest.json">
-    <link rel="shortcut icon" href="img/favicon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#663fb5">
-    <meta name="msapplication-TileImage" content="img/favicon/mstile-144x144.png">
-    <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#663fb5">
-    <!-- Only needed Bootstrap bits + custom CSS in one file -->
-    <link rel="stylesheet" href="public/css/ls/landio.css">
-  </head>
+#{extends 'main.html'/}
+#{set title:'PatientFiles | Registro'/}
 
-  <body class="bg-faded p-t-md">
-    <div class="container">
-      <h3 class="p-y text-center">PatientFiles <strong>Registro</strong></h3>
-    </div>
-    <nav class="navbar bg-white">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-          <span class="icon-logo"></span>
-          <span class="sr-only">Land.io</span>
-        </a>
-        <a class="navbar-toggler hidden-md-up pull-right" data-toggle="collapse" href="#collapsingNavbar" aria-expanded="false" aria-controls="collapsingNavbar">
-        &#9776;
-      </a>
-        <a class="navbar-toggler navbar-toggler-custom hidden-md-up pull-right" data-toggle="collapse" href="#collapsingMobileUser" aria-expanded="false" aria-controls="collapsingMobileUser">
-          <span class="icon-user"></span>
-        </a>
-        <div id="collapsingNavbar" class="collapse navbar-toggleable-custom" role="tabpanel" aria-labelledby="collapsingNavbar">
-          <ul class="nav navbar-nav pull-right">
-            <li class="nav-item nav-item-toggable">
-              <a class="nav-link" href="#">Planes</a>
-            </li>
-            <li class="nav-item nav-item-toggable active">
-              <a class="nav-link" href="@{Application.newDentist}">Regístrate <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item nav-item-toggable">
-              <a class="nav-link" href="#">Iniciar Sesión</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<!--=========================PAGE CONTENT========================-->
+#{navbarGeneral/}
+
     <div class="container">
       <div class="row">
-          #{form @saveUser(usr)}
+        <hr class="invisible">
+
+       <h1 style="text-align: left"> Módulo de Registro</h1>
+        <br/>
+
         <div class="col-md-6 col-xl-4">
           <div class="form-group has-icon-left form-control-name">
               #{field 'nombre'}
@@ -87,7 +33,10 @@
           <button type="submit" class="btn btn-primary btn-block">¡Registro Gratuito!</button>
           <hr class="invisible">
         </div>
-          #{/form}
+
+        <div class="col-md-6 col-xl-4">
+        </div>
+
         <div class="col-md-6 col-xl-4">
           <hr class="invisible">
           <a href="#" class="btn btn-social btn-block bg-google">
@@ -109,130 +58,9 @@
           <hr class="invisible">
         </div>
         <div class="clearfix hidden-xl-up"></div>
-        <div class="col-md-4">
-          <div class="card card-chart">
-            <div id="chart-holder" class="center-block" data-active="90%">
-              <canvas id="chart-area" class="center-block" width="200" height="200"></canvas>
-            </div>
-            <ul class="list-group">
-              <li class="list-group-item complete">
-                <span class="label pull-right">324</span>
-                <span class="icon-status status-completed"></span> Completed
-              </li>
-              <li class="list-group-item">
-                <span class="label pull-right">34</span>
-                <span class="icon-status status-backlog"></span> In backlog
-              </li>
-              <li class="list-group-item">
-                <span class="label pull-right">20</span>
-                <span class="icon-status status-noticket"></span> Without ticket
-              </li>
-            </ul>
-          </div>
-          <hr class="invisible">
-        </div>
-        <div class="clearfix hidden-md-up"></div>
-        <div class="col-md-8 col-xl-6 col-xl-offset-3">
-          <div class="card card-inverse card-social text-center">
-            <div class="card-block has-gradient">
-              <img src="img/face5.jpg" height="90" width="90" alt="Avatar" class="img-circle">
-              <h5 class="card-title">Joel Fisher</h5>
-              <h6 class="card-subtitle">hey@joelfisher.com</h6>
-              <button type="submit" class="btn btn-secondary-outline btn-sm">Follow</button>
-            </div>
-            <div class="card-block container">
-              <div class="row">
-                <div class="col-md-4 card-stat">
-                  <h4>149 <small class="text-uppercase">Shots</small></h4>
-                </div>
-                <div class="col-md-4 card-stat">
-                  <h4>1,763 <small class="text-uppercase">Follows</small></h4>
-                </div>
-                <div class="col-md-4 card-stat">
-                  <h4>324 <small>D/Ls</small></h4>
-                </div>
-              </div>
-            </div>
-          </div>
-          <hr class="invisible">
-        </div>
+
       </div>
     </div>
-    <section class="section-news" style="padding-bottom:2rem;">
-      <div class="container">
-        <h3 class="sr-only">News</h3>
-        <div class="bg-inverse">
-          <div class="row">
-            <div class="col-md-6 p-r-0">
-              <figure class="has-light-mask m-b-0 image-effect">
-                <img src="https://images.unsplash.com/photo-1442328166075-47fe7153c128?q=80&fm=jpg&w=1080&fit=max" alt="Article thumbnail" class="img-responsive">
-              </figure>
-            </div>
-            <div class="col-md-6 p-l-0">
-              <article class="center-block">
-                <span class="label label-info">Featured article</span>
-                <br>
-                <h5><a href="#">Design studio with product designer Peter Finlan <span class="icon-arrow-right"></span></a></h5>
-                <p class="m-b-0">
-                  <a href="#"><span class="label label-default text-uppercase"><span class="icon-tag"></span> Design Studio</span></a>
-                  <a href="#"><span class="label label-default text-uppercase"><span class="icon-time"></span> 1 Hour Ago</span></a>
-                </p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer class="section-footer bg-white" role="contentinfo">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-5">
-            <div class="media">
-              <div class="media-left">
-                <span class="media-object icon-logo display-1"></span>
-              </div>
-              <small class="media-body media-bottom">
-          &copy; PatientFiles 2015. <br>
-          Diseñado por Baruch Sias & Mario Luján. Desarrollado por Jonathan Islas & Jesús García, exclusivo para PatientFiles.
-          </small>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-7">
-            <ul class="list-inline m-b-0">
-              <li><a href="#">Planes</a></li>
-              <li class="active"><a href="ui-elements.html">Registro</a></li>
-              <li><a href="#">Iniciar Sesión</a></li>
-              <li><a class="scroll-top" href="#totop">Ir Para Arriba <span class="icon-caret-up"></span></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!--<footer class="section-footer bg-inverse" role="contentinfo">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-5">
-            <div class="media">
-              <div class="media-left">
-                <span class="media-object icon-logo display-1"></span>
-              </div>
-              <small class="media-body media-bottom">
-          &copy; Land.io 2015. <br>
-          Designed by Peter Finlan, developed by Taty Grassini, exclusively for Codrops.
-          </small>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-7">
-            <ul class="list-inline m-b-0">
-              <li><a href="http://tympanus.net/codrops/?p=25217">About Land.io</a></li>
-              <li class="active"><a href="ui-elements.html">UI Kit</a></li>
-              <li><a href="https://github.com/tatygrassini/landio-html" target="_blank">GitHub</a></li>
-              <li><a class="scroll-top" href="#totop">Back to top <span class="icon-caret-up"></span></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <!-- only needed Bootstrap JS components + 3rd party plugins + custom -->
     <script src="js/ls/landio.min.js"></script>
