@@ -15,12 +15,13 @@ public class Application extends Controller {
         render();
     }
 
-   /* public static void newDentist(){
-        Usuario usr = new Usuario();
-        render(usr);
+    public static void newDentist(){
+        //Usuario usr = new Usuario();
+        //render(usr);
+        render();
     }
 
-   public static void saveUser(Usuario usr){
+   /*public static void saveUser(Usuario usr){
         usr.save();
         Security.authenticate(usr.email, usr.password);
         MembersArea.index();

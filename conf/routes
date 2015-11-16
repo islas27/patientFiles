@@ -4,6 +4,17 @@
 
 # Home page
 GET     /                                       Application.index
+GET     /index                                  Application.index
+GET     /plansPayments                          Application.plansPayments
+GET     /newDentist                             Application.newDentist
+POST    /newDentist                             Application.saveUser
+
+GET     /members/index                          MembersArea.index
+GET     /members/myProfile                      MembersArea.index
+GET     /members/listPatients                   MembersArea.listPatients
+GET     /members/newPatient                     MembersArea.newPatient
+GET     /members/newProcedure                   MembersArea.newProcedure
+GET     /members/patient/{id}                   MembersArea.pat
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
