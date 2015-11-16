@@ -254,7 +254,7 @@ Etiqueta(E49):
     tipo: Patologico
 
 Etiqueta(E50):
-    name: Problemas en intestino (parasitos)
+    name: Problemas_en_intestino_(parasitos)
     label: Problemas en intestino (parasitos)
     tipo: Patologico
 
@@ -263,3 +263,233 @@ Etiqueta(E51):
     label: Sigue Alguna dieta
     tipo: Patologico
 
+
+
+
+
+Permiso(Administrador):
+    nombre: Administrador
+
+
+
+Rol(Free_user):
+    roleName: Free
+
+Rol(ADMIN):
+    roleName: Admin
+    permisos:
+              - Administrador
+
+
+
+
+Usuario(USER1):
+    email: jonathan@hotmail.com
+    password: jonathan
+    name: Jonathan
+    lastName: Islas
+    birthday: 20-09-1992
+    rol: ADMIN
+
+Usuario(USER2):
+    email: jesus@hotmail.com
+    password: jesus
+    name: Jesus
+    lastName: Garcia
+    birthday: 11-06-1994
+    rol: ADMIN
+
+Usuario(USER3):
+    email: baruch@hotmail.com
+    password: baruch
+    name: Baruch
+    lastName: Sias
+    birthday: 27-03-1993
+    rol: ADMIN
+
+Usuario(USER4):
+    email: mario@hotmail.com
+    password: mario
+    name: Mario
+    lastName: Lujan
+    birthday: 25-05-1994
+    rol: ADMIN
+
+
+
+Usuario(D1):
+    email: negro@hotmail.com
+    password: negro
+    name: Negro
+    lastName: Blanco
+    birthday: 12-08-1980
+    rol: Free
+
+Usuario(D2):
+    email: rojo@hotmail.com
+    password: rojo
+    name: Rojo
+    lastName: Azul
+    birthday: 12-08-1980
+    rol: Free
+
+Usuario(D3):
+    email: juan@hotmail.com
+    password: juan
+    name: Juan
+    lastName: Perez
+    birthday: 15-01-1990
+    rol: Free
+
+
+
+
+
+
+Cliente(CLI1):
+    nombre: Sancho
+    apellidoPaterno: Panza
+    apellidoMaterno: Perez
+    fechaNacimiento: 05-05-1990
+    pais: Mexico
+    estado: Chihuahua
+    ciudad: Chihuahua
+    esHombre:
+    ocupacion: Empleado
+    estadoCivil: Casado
+    domicilio: Calle de los Perritos 2143
+    colonia: Granjas
+    telefono: 490-2356
+    correo: sanchopanza@hotmail.com
+    doctor: negro@hotmail.com
+
+Cliente(CLI2):
+    nombre: Eustacio
+    apellidoPaterno: Perez
+    apellidoMaterno: Galindo
+    fechaNacimiento: 01-12-1992
+    pais: Mexico
+    estado: Chihuahua
+    ciudad: Chihuahua
+    esHombre:
+    ocupacion: Desempleado
+    estadoCivil: Soltero
+    domicilio: Dostollevsky 3316
+    colonia: Ponce de Leon
+    telefono: 234-6969
+    correo: maquinadefuego@hotmail.com
+    doctor: negro@hotmail.com
+
+Cliente(CLI3):
+    nombre: Eutanacia
+    apellidoPaterno: Lopez
+    apellidoMaterno: Guerra
+    fechaNacimiento: 23-07-1994
+    pais: Mexico
+    estado: Chihuahua
+    ciudad: Chihuahua
+    esHombre:
+    ocupacion: Empleada
+    estadoCivil: Casada
+    domicilio: Avenida de los castores voladores 5675
+    colonia: Nuevo Campus
+    telefono: 569-4523
+    correo: perrovolador@hotmail.com
+    doctor: negro@hotmail.com
+
+Cliente(CLI4):
+    nombre: Eusebio
+    apellidoPaterno: Guaxiola
+    apellidoMaterno: Ramirez
+    fechaNacimiento: 13-02-1992
+    pais: Mexico
+    estado: Chihuahua
+    ciudad: Chihuahua
+    esHombre:
+    ocupacion: Empleado
+    estadoCivil: Casad0
+    domicilio: Avenida de los chimex 5675
+    colonia: Nuevo Campus
+    telefono: 569-4523
+    correo: doctormuelitas@hotmail.com
+    doctor: rojo@hotmail.com
+
+
+familiarResponsable(FR1):
+    nombre: Pancha Perez
+    domicilio: Avenida de los pajaros 3451
+    telefono: 765-3452
+
+familiarResponsable(FR2):
+    nombre: Panfila Filomena
+    domicilio: Avenida de las industrias 5631
+    telefono: 857-7644
+
+familiarResponsable(FR3):
+    nombre: Elvis Tek
+    domicilio: Calle Elmon tado colonia mencajo sola 5662
+    telefono: 764-2654
+
+familiarResponsable(FR4):
+    nombre: Rosa Meltrozo
+    domicilio: Colonia Paracaidistas 4523
+    telefono: 546-6969
+
+
+
+
+ExpedienteMedico(EXP1):
+    paciente: CLI1
+    familiarResponsable: FR1
+    adicciones:
+                - Tabaquismo
+    inmunizaciones:
+                - BCG
+                - DPTT
+                - ANTISARAMPION
+    patologico:
+                - Sangrado_al_Toser
+                - Tratamiento_Psiquiatrico
+
+ExpedienteMedico(EXP2):
+    paciente: CLI2
+    familiarResponsable: FR2
+    adicciones:
+                    - Tabaquismo
+                    - Alcoholismo
+    inmunizaciones:
+                    - BCG
+                    - DPTT
+                    - ANTISARAMPION
+    patologico:
+                    - Asma
+                    - Paralisis
+                    - Moretones_Facilmente
+
+ExpedienteMedico(EXP3):
+    paciente: CLI3
+    familiarResponsable: FR3
+    adicciones:
+                    - Farmacodependiente
+    inmunizaciones:
+                    - BCG
+                    - HEPATITIS
+    patologico:
+                    - Asma
+                    - Ulceras
+                    - Cefalea_Frequente
+
+ExpedienteMedico(EXP4):
+    paciente: CLI4
+    familiarResponsable: FR4
+    adicciones:
+                    - Tabaquismo
+    inmunizaciones:
+                    - BCG
+                    - HEPATITIS
+                    - DPTT
+                    - ANTISARAMPION
+    patologico:
+                    - Artritis
+                    - Tuberculosis
+                    - Enfermedad_Cardiaca
