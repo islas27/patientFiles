@@ -1,5 +1,6 @@
 #{extends 'main.html'/}
 #{set title:'PatientFiles | Bienvenida'/}
+#{loginModal/}
 
 <!--=========================PAGE CONTENT========================-->
 
@@ -14,7 +15,7 @@
               <a class="nav-link" href="@{Application.newDentist}">Regístrate</a>
             </li>
             <li class="nav-item nav-item-toggable">
-              <a class="nav-link" href="#">Inicar Sesión</a>
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Inicar Sesión</a>
             </li>
             <li class="nav-item nav-item-toggable hidden-sm-up">
               <form class="navbar-form">
