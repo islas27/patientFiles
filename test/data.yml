@@ -323,7 +323,7 @@ Usuario(D1):
     name: Negro
     lastName: Blanco
     birthday: 12-08-1980
-    rol: Free
+    rol: Free_user
 
 Usuario(D2):
     email: rojo@hotmail.com
@@ -331,7 +331,7 @@ Usuario(D2):
     name: Rojo
     lastName: Azul
     birthday: 12-08-1980
-    rol: Free
+    rol: Free_user
 
 Usuario(D3):
     email: juan@hotmail.com
@@ -339,7 +339,7 @@ Usuario(D3):
     name: Juan
     lastName: Perez
     birthday: 15-01-1990
-    rol: Free
+    rol: Free_user
 
 
 
@@ -354,7 +354,7 @@ Cliente(CLI1):
     pais: Mexico
     estado: Chihuahua
     ciudad: Chihuahua
-    esHombre:
+    esHombre: y
     ocupacion: Empleado
     estadoCivil: Casado
     domicilio: Calle de los Perritos 2143
@@ -371,7 +371,7 @@ Cliente(CLI2):
     pais: Mexico
     estado: Chihuahua
     ciudad: Chihuahua
-    esHombre:
+    esHombre: y
     ocupacion: Desempleado
     estadoCivil: Soltero
     domicilio: Dostollevsky 3316
@@ -388,7 +388,7 @@ Cliente(CLI3):
     pais: Mexico
     estado: Chihuahua
     ciudad: Chihuahua
-    esHombre:
+    esHombre: n
     ocupacion: Empleada
     estadoCivil: Casada
     domicilio: Avenida de los castores voladores 5675
@@ -405,7 +405,7 @@ Cliente(CLI4):
     pais: Mexico
     estado: Chihuahua
     ciudad: Chihuahua
-    esHombre:
+    esHombre: n
     ocupacion: Empleado
     estadoCivil: Casad0
     domicilio: Avenida de los chimex 5675
