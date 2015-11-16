@@ -33,7 +33,7 @@ public class Etiqueta extends Model{
                 this.tipo = "Patologico";
                 break;
             case Vicio:
-                this.tipo = "Vicio";
+                this.tipo = "Adicciones";
                 break;
             case Inmunizacion:
                 this.tipo = "Inmunizacion";
