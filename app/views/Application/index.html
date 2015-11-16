@@ -1,5 +1,6 @@
 #{extends 'main.html'/}
 #{set title:'PatientFiles | Bienvenida'/}
+#{loginModal/}
 
 <!--=========================PAGE CONTENT========================-->
 
@@ -14,7 +15,7 @@
               <a class="nav-link" href="@{Application.newDentist}">Regístrate</a>
             </li>
             <li class="nav-item nav-item-toggable">
-              <a class="nav-link" href="#">Inicar Sesión</a>
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Inicar Sesión</a>
             </li>
             <li class="nav-item nav-item-toggable hidden-sm-up">
               <form class="navbar-form">
@@ -39,7 +40,7 @@
     <header class="jumbotron bg-inverse text-center center-vertically" role="banner">
       <div class="container">
         <h1 class="display-3">Patient Files</h1>
-        <h2 class="m-b-lg">No más expedientes perdidos, <em>precios accesibles</em><a href="ui-elements.html" class="jumbolink">, la información es poder</a>.</h2>
+        <h2 class="m-b-lg">No más expedientes perdidos, <em>precios accesibles</em><!--<a href="ui-elements.html" class="jumbolink">-->,la información es poder</a>.</h2>
         <a class="btn btn-secondary-outline m-b-md" href="@{Application.newDentist}" role="button">Regístrate</a>
       </div>
     </header>
@@ -198,7 +199,7 @@
           </div>
           <div class="col-md-5 col-md-offset-2 separator-x">
             <p class="wp wp-8">Facilitando tanto a pacientes como a dentistas el manejo de la historia clínica, que contiene todos los aspectos evaluados del paciente
-			(Información personal, historia médica, inmunizaciones, vicios y antecedentes patológicos)</p>
+			(Información personal, historia médica, inmunizaciones, adicciones y antecedentes patológicos)</p>
           </div>
         </div>
       </div>
