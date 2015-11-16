@@ -7,17 +7,25 @@
 package models;
 
 import java.util.List;
+import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import play.db.jpa.Model;
+import models.deadbolt.Role;
 
 /**
  *
  * @author jesus
  */
-public class Permiso extends Model{
+@Entity
+public class Permiso extends Model implements Role{
     public String nombre;
 
     public Permiso(String nombre){
         this.nombre = nombre;
+    }
+
+    public String getRoleName()
+    {
+        return nombre;
     }
 }

@@ -39,8 +39,6 @@ public class Usuario extends Model implements RoleHolder{
 
     public List<? extends Role> getRoles()
     {
-        List<Rol> lista  = new ArrayList();
-        lista.add(rol);
-        return lista;
+        return rol.permisos;
     }
 }

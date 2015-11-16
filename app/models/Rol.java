@@ -8,7 +8,6 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
-import models.deadbolt.Role;
 import play.db.jpa.Model;
 
 import javax.persistence.Column;
@@ -20,7 +19,7 @@ import org.hibernate.annotations.ManyToAny;
  * @author Steve Chaloner (steve@objectify.be)
  */
 @Entity
-public class Rol extends Model implements Role
+public class Rol extends Model
 {
     @Column(nullable = false)
     public String roleName;
@@ -32,10 +31,5 @@ public class Rol extends Model implements Role
     {
         this.roleName = roleName;
         permisos = new ArrayList<Permiso>();
-    }
-
-    public String getRoleName()
-    {
-        return roleName;
     }
 }
