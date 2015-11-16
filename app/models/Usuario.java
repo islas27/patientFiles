@@ -6,13 +6,15 @@
 
 package models;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import play.db.jpa.Model;
 import models.deadbolt.Role;
 import models.deadbolt.RoleHolder;
+import play.db.jpa.Model;
 
 /**
  *
@@ -34,4 +36,11 @@ public class Usuario extends Model implements RoleHolder{
 
     @ManyToOne
     public Rol rol;
+
+    public List<? extends Role> getRoles()
+    {
+        List<Rol> lista  = new ArrayList();
+        lista.add(rol);
+        return lista;
+    }
 }
