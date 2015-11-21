@@ -22,9 +22,10 @@ GET     /favicon.ico                            404
 GET     /public/                                staticDir:public
 
 # Import CRUD routes
-*     /admin           module:crud
+*       /admin           module:crud
 
-*       /auth       module:securesocial
+# Import Secure routes
+*       /                module:secure
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
