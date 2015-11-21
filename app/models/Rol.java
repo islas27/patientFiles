@@ -27,9 +27,4 @@ public class Rol extends Model
     @ManyToMany
     public List<Permiso> permisos;
 
-    public Rol(String roleName)
-    {
-        this.roleName = roleName;
-        permisos = new ArrayList<Permiso>();
-    }
 }

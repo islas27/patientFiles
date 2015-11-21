@@ -12,8 +12,6 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import models.deadbolt.Role;
-import models.deadbolt.RoleHolder;
 import play.db.jpa.Model;
 
 /**
@@ -21,8 +19,9 @@ import play.db.jpa.Model;
  * @author jesus
  */
 @Entity
-public class Usuario extends Model implements RoleHolder{
+public class Usuario extends Model{
 
+    @Column(unique = true)
     public String email;
 
     public String name;
@@ -37,8 +36,12 @@ public class Usuario extends Model implements RoleHolder{
     @ManyToOne
     public Rol rol;
 
-    public List<? extends Role> getRoles()
-    {
-        return rol.permisos;
+    public static Usuario ByEmail(String email){
+        return Usuario.find("byEmail", email).first();
     }
+
+    public static Usuario ByEmailAndPassword(String email, String password){
+        return Usuario.find("byEmailAndPassword", email, password).first();
+    }
+
 }

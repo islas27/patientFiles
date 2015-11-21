@@ -1,6 +1,6 @@
 package models;
 
-import com.google.code.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Entity;
 import java.util.*;
 
 import play.data.validation.*;
@@ -53,9 +53,19 @@ public class Cliente extends Model{
     @Required
     public String telefono;
 
+    @Required
     public String correo;
 
+    @Required
     public String doctor;
 
     public List<String> referidos;
+
+    public static List<Cliente> getPacientes(String doctor){
+        return Cliente.find("doctor", doctor).asList();
+    }
+
+    public static List<Cliente> getReferidos(String doctor){
+        return Cliente.q().filter("referidos elem", doctor).asList();
+    }
 }
