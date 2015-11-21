@@ -41,4 +41,8 @@ public class Usuario extends Model{
         return Usuario.find("byEmailAndPassword", email, password).first();
     }
 
+    public String toString(){
+        return this.email;
+    }
+
 }

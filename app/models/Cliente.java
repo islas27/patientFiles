@@ -73,4 +73,9 @@ public class Cliente extends Model{
     public static List<Cliente> getReferidos(String doctor){
         return Cliente.q().filter("referidos elem", doctor).asList();
     }
+
+    @Override
+    public String toString(){
+        return this.nombre;
+    }
 }

@@ -47,4 +47,10 @@ public class Cita extends Model{
         return Cita.find("paciente", cliente).asList();
     }
 
+    @Override
+    public String toString(){
+        return String.format("%s %s %s", inicio.toString(),
+                doctor.toString(), paciente.toString());
+    }
+
 }

@@ -19,5 +19,8 @@ public class Seguridad extends Secure.Security{
         return user != null && user.password.equals(password);
     }
 
-    
+    static boolean check(String profile) {
+        return true;
+    }
+
 }
