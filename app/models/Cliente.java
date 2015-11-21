@@ -1,6 +1,6 @@
 package models;
 
-import com.google.code.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Entity;
 import java.util.*;
 
 import play.data.validation.*;
@@ -14,6 +14,11 @@ import play.modules.morphia.Model;
 @Entity
 public class Cliente extends Model{
 
+    /*
+    *Aqui estarán alojados los campos obligatorios con sus debidas restricciones
+    *los cuales no podran permitir avanzar a la siguiente funcion hasta que se
+    *hayan ingresado los campos
+     */
     @Required
     public String nombre;
 
@@ -53,9 +58,19 @@ public class Cliente extends Model{
     @Required
     public String telefono;
 
+    @Required
     public String correo;
 
+    @Required
     public String doctor;
 
     public List<String> referidos;
+
+    public static List<Cliente> getPacientes(String doctor){
+        return Cliente.find("doctor", doctor).asList();
+    }
+
+    public static List<Cliente> getReferidos(String doctor){
+        return Cliente.q().filter("referidos elem", doctor).asList();
+    }
 }

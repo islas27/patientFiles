@@ -1,43 +1,31 @@
-<nav class="navbar navbar-dark bg-inverse">
-    <div class="container">
-        <a class="navbar-brand" href="@{Application.index}">
-            <span class="icon-logo"></span>
-            <span class="sr-only">PatientFiles</span>
-        </a>
-        <a class="navbar-toggler hidden-md-up pull-right" data-toggle="collapse" href="#collapsingNavbarInverse" aria-expanded="false" aria-controls="collapsingNavbarInverse">
-            ☰
-        </a>
-        <a class="navbar-toggler navbar-toggler-custom hidden-md-up pull-right" data-toggle="collapse" href="#collapsingMobileUserInverse" aria-expanded="false" aria-controls="collapsingMobileUserInverse">
-            <span class="icon-user"></span>
-        </a>
-        <div id="collapsingNavbarInverse" class="collapse navbar-toggleable-custom" role="tabpanel" aria-labelledby="collapsingNavbarInverse">
-            <ul class="nav navbar-nav pull-right">
-                <li class="nav-item nav-item-toggable">
-                    <a class="nav-link" href="@{MembersArea.index}">Inicio</a>
-                </li>
-                <li class="nav-item dropdown hidden-sm-down">
-                    <a class="nav-link dropdown-toggle" id="dropdownMenuInverse2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Pacientes
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-user dropdown-menu-animated" aria-labelledby="dropdownMenuInverse2">
-                        <a href="@{MembersArea.listPatients}" class="dropdown-item text-uppercase">Listado Pacientes</a>
-                        <a href="@{MembersArea.newPatient}" class="dropdown-item text-uppercase">Nuevo Paciente</a>
-                        <a href="@{MembersArea.newProcedure}" class="dropdown-item text-uppercase">Nuevo Procedimiento</a>
-                    </div>
-                </li>
-                <li class="nav-item nav-item-toggable">
-                    <a class="nav-link" href="@{MembersArea.myProfile}">Mi Perfil</a>
-                </li>
-                <li class="navbar-divider hidden-sm-down"></li>
-                <li class="nav-item nav-item-toggable">
-                    <a class="nav-link" href="@{MembersArea.logout}">Salir</a>
-                </li>
-            </ul>
-        </div>
-        <div id="collapsingMobileUserInverse" class="collapse navbar-toggleable-custom dropdown-menu-custom p-x hidden-md-up" role="tabpanel" aria-labelledby="collapsingMobileUserInverse">
-            <a href="@{MembersArea.listPatients}" class="dropdown-item text-uppercase">Listado Pacientes</a>
-            <a href="@{MembersArea.newPatient}" class="dropdown-item text-uppercase">Nuevo Paciente</a>
-            <a href="@{MembersArea.newProcedure}" class="dropdown-item text-uppercase">Nuevo Procedimiento</a>
-        </div>
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <span class="clear"> <span class="text-muted block m-t-xs"> <strong class="font-bold">David Williams</strong></span>
+                        <span class="text-muted text-xs block">Art Director</span> </span>
+                </div>
+                <div class="logo-element">
+                    PF
+                </div>
+            </li>
+            <li>
+                <a href="index"><i class="fa fa-home"></i> <span class="nav-label">Inicio</span></a>
+            </li>
+            <li>
+                <a href="listPatients"><i class="fa fa-users"></i> <span class="nav-label">Pacientes</span> </a>
+            </li>
+            <li>
+                <a href="newPatient"><i class="fa fa-user-plus"></i> <span class="nav-label">Nuevo Paciente</span> </a>
+            </li>
+            <li>
+                <a href="newProcedure"><i class="fa fa-pencil-square-o"></i> <span class="nav-label">Nuevo Procedimiento</span> </a>
+            </li>
+            <li>
+                <a href="myProfile"><i class="fa fa-user-md"></i> <span class="nav-label">Mi perfil</span> </a>
+            </li>
+        </ul>
+
     </div>
 </nav>

@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 
-package models;
+package controllers.crud;
 
+import controllers.CRUD;
 /**
  *
  * @author jesus
  */
-public class Diagnostico {
+public class Usuarios extends CRUD{
 
 }

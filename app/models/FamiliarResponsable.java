@@ -1,12 +1,10 @@
 package models;
 
 
-import com.google.code.morphia.annotations.Embedded;
+import org.mongodb.morphia.annotations.Embedded;
 import play.data.validation.*;
 
 /**
- *Entidad que se encarga de guardar los datos del familiar resposable del
- * cliente
  * @see  Cliente
  * @author jesus
  */
@@ -22,6 +20,10 @@ public class FamiliarResponsable{
 
     @Required
     public String telefono;
+    /*
+    * Se encargará de recibir los datos del Familiar Responsable del cliente
+    * recibiendo nombre, domicilio y telefono
+    */
 
     public FamiliarResponsable(String nombre, String domicilio, String telefono) {
         this.nombre = nombre;
@@ -29,6 +31,6 @@ public class FamiliarResponsable{
         this.telefono = telefono;
     }
 
-    
+
 
 }

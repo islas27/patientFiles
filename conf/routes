@@ -10,10 +10,11 @@ GET     /newDentist                             Application.newDentist
 POST    /newDentist                             Application.saveUser
 
 GET     /members/index                          Members.index
+GET     /members/myProfile                      Members.myProfile
 GET     /members/listPatients                   Members.listPatients
 GET     /members/newPatient                     Members.newPatient
 GET     /members/newProcedure                   Members.newProcedure
-GET     /members/patient/{id}                   Members.pat
+GET     /members/patient/{id}                   Members.patient
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
@@ -29,3 +30,6 @@ GET     /public/                                staticDir:public
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}
+
+# Import CRUD routes
+*     /admin                                    module:crud
