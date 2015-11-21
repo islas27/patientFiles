@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="${_response_encoding}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#{get 'title' /}</title>
+    <link href="@{'public/css/bootstrap.min.css'}" rel="stylesheet">
+    <link href="@{'public/font-awesome/css/font-awesome.css'}" rel="stylesheet">
+    <link href="@{'public/css/animate.css'}" rel="stylesheet">
+    <link href="@{'public/css/style.css'}" rel="stylesheet">
+    #{get 'moreStyles' /}
+
+</head>
+
+<body class="md-skin">
+
+<div id="wrapper">
+
+    #{navbarMembers /}
+
+    <div id="page-wrapper" class="gray-bg">
+        #{navbarTopMembers /}
+
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+
+            #{doLayout /}
+
+            </div>
+        </div>
+
+        #{footerMembers /}
+
+    </div>
+</div>
+
+<!-- Mainly scripts -->
+
+<script src="@{'public/js/jquery-2.1.1.js'}"></script>
+<script src="@{'public/js/bootstrap.min.js'}"></script>
+<script src="@{'public/js/plugins/metisMenu/jquery.metisMenu.js'}"></script>
+<script src="@{'public/js/plugins/slimscroll/jquery.slimscroll.min.js'}"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="@{'public/js/inspinia.js'}"></script>
+<!--<script src="@{'public/js/plugins/pace/pace.min.js'}"></script>-->
+#{get 'moreScripts' /}
+
+
+</body>
+
+</html>

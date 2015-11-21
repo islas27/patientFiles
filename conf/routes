@@ -9,12 +9,12 @@ GET     /plansPayments                          Application.plansPayments
 GET     /newDentist                             Application.newDentist
 POST    /newDentist                             Application.saveUser
 
-GET     /members/index                          MembersArea.index
-GET     /members/myProfile                      MembersArea.index
-GET     /members/listPatients                   MembersArea.listPatients
-GET     /members/newPatient                     MembersArea.newPatient
-GET     /members/newProcedure                   MembersArea.newProcedure
-GET     /members/patient/{id}                   MembersArea.pat
+GET     /members/index                          Members.index
+GET     /members/myProfile                      Members.myProfile
+GET     /members/listPatients                   Members.listPatients
+GET     /members/newPatient                     Members.newPatient
+GET     /members/newProcedure                   Members.newProcedure
+GET     /members/patient/{id}                   Members.patient
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
