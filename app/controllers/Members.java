@@ -14,4 +14,8 @@ public class Members extends Controller {
     public static void listPatients(){
         render();
     }
+
+    public static void myProfile(){
+        render();
+    }
 }
