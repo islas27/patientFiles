@@ -26,8 +26,7 @@ public class Cita extends Model{
     @Reference
     public Proceso proceso;
 
-    @Reference
-    public HistorialMedico hm;
+    public String descripcion;
 
     public String doctor;
 
