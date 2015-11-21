@@ -28,4 +28,8 @@ public class Permiso extends Model implements Role{
     {
         return nombre;
     }
+    /*
+    * En esta clase se implementara la obtencion de datos para los permisos de los
+    * usuarios
+    */
 }

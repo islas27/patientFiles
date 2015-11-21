@@ -32,4 +32,5 @@ public class Rol extends Model
         this.roleName = roleName;
         permisos = new ArrayList<Permiso>();
     }
+
 }

@@ -1,4 +1,4 @@
-#{extends 'main.html'/}
+  #{extends 'main.html'/}
 #{set title:'PatientFiles | Bienvenida'/}
 #{loginModal/}
 
@@ -6,6 +6,9 @@
 
     <nav class="navbar navbar-dark bg-inverse bg-inverse-custom navbar-fixed-top">
       <div class="container">
+          <!--
+          Navbar que define los menús de navegación
+          -->
           <div id="collapsingNavbar" class="collapse navbar-toggleable-custom" role="tabpanel" aria-labelledby="collapsingNavbar">
           <ul class="nav navbar-nav pull-left">
             <li class="nav-item nav-item-toggable">
@@ -37,6 +40,10 @@
         
       </div>
     </nav>
+
+    <!--
+    Cabecera de la página
+    -->
     <header class="jumbotron bg-inverse text-center center-vertically" role="banner">
       <div class="container">
         <h1 class="display-3">Patient Files</h1>
@@ -44,6 +51,10 @@
         <a class="btn btn-secondary-outline m-b-md" href="@{Application.newDentist}" role="button">Regístrate</a>
       </div>
     </header>
+
+    <!--
+    Secciones informativas sobre el proyecto: Misión, plan de pago, informacion extra
+    -->
     <section class="section-intro bg-faded text-center hidden-overflow">
       <div class="container">
         <h3 class="wp wp-1">Misión</h3>
@@ -265,6 +276,10 @@
         </div>
       </div>
     </section>
+
+    <!--
+    Sección extra para el registro de un nuevo usuario
+    -->
     <section class="section-signup bg-faded">
       <div class="container">
         <h3 class="text-center m-b-lg">¡Regístrate Para Recibir Los Beneficios!</h3>
