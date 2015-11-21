@@ -11,6 +11,8 @@ import controllers.CRUD;
  *
  * @author jesus
  */
+@With(Secure.class)
+@Check("administrador")
 public class HistorialMedicos extends CRUD{
 
 }
