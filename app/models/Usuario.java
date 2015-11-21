@@ -6,13 +6,10 @@
 
 package models;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import play.db.jpa.Model;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Reference;
+import play.modules.morphia.Model;
 
 /**
  *
@@ -21,20 +18,20 @@ import play.db.jpa.Model;
 @Entity
 public class Usuario extends Model{
 
-    @Column(unique = true)
     public String email;
 
     public String name;
 
-    @Column(name="last_name")
     public String lastName;
 
     public String password;
 
     public Date birthday;
 
-    @ManyToOne
+    @Reference
     public Rol rol;
+
+    public  Date caducidadPalan;
 
     public static Usuario ByEmail(String email){
         return Usuario.find("byEmail", email).first();

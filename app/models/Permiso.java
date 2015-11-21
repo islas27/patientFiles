@@ -6,10 +6,9 @@
 
 package models;
 
-import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import play.db.jpa.Model;
+import org.mongodb.morphia.annotations.Entity;
+import play.modules.morphia.Model;
+
 
 /**
  *

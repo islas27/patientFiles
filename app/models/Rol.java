@@ -6,14 +6,11 @@
 
 package models;
 
-import java.util.ArrayList;
 import java.util.List;
-import play.db.jpa.Model;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Reference;
+import play.modules.morphia.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import org.hibernate.annotations.ManyToAny;
 
 /**
  * @author Steve Chaloner (steve@objectify.be)
@@ -21,10 +18,9 @@ import org.hibernate.annotations.ManyToAny;
 @Entity
 public class Rol extends Model
 {
-    @Column(nullable = false)
     public String roleName;
 
-    @ManyToMany
+    @Reference
     public List<Permiso> permisos;
 
 }
