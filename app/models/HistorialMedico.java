@@ -58,6 +58,8 @@ public class HistorialMedico extends Model{
         this.doctor = doctor;
     }
 
-
+    public String toString(){
+        return this.motivoConsulta;
+    }
 
 }

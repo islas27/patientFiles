@@ -55,5 +55,9 @@ public class ExpedienteMedico extends Model{
         patologicos = new ArrayList();
     }
 
+    public String toString(){
+        return String.format("EM %s", this.paciente.toString());
+    }
+
 
 }

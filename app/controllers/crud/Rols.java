@@ -7,10 +7,16 @@
 package controllers.crud;
 
 import controllers.CRUD;
+import controllers.Check;
+import controllers.Secure;
+import play.mvc.With;
+
 /**
  *
  * @author jesus
  */
+@With(Secure.class)
+@Check("administrador")
 public class Rols extends CRUD{
 
 }

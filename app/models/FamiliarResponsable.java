@@ -31,6 +31,8 @@ public class FamiliarResponsable{
         this.telefono = telefono;
     }
 
-
+    public String toString (){
+        return this.nombre;
+    }
 
 }

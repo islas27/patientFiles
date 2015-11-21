@@ -6,11 +6,17 @@
 
 package controllers.crud;
 
+import play.mvc.*;
+import controllers.Check;
 import controllers.CRUD;
+import controllers.Secure;
+
 /**
  *
  * @author jesus
  */
+@With(Secure.class)
+@Check("administrador")
 public class Usuarios extends CRUD{
 
 }

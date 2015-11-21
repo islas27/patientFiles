@@ -23,4 +23,8 @@ public class Rol extends Model
     @Reference
     public List<Permiso> permisos;
 
+    public String toString (){
+        return this.roleName;
+    }
+
 }

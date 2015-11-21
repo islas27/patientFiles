@@ -22,4 +22,8 @@ public class Permiso extends Model{
         this.nombre = nombre;
     }
 
+    public String toString(){
+        return this.nombre;
+    }
+
 }

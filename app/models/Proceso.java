@@ -28,4 +28,8 @@ public class Proceso extends Model{
     @Reference
     public Cita cita;
 
+    public String toString(){
+        return this.descripcion.substring(30);
+    }
+
 }
