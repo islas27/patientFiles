@@ -14,6 +14,11 @@ import play.modules.morphia.Model;
 @Entity
 public class Cliente extends Model{
 
+    /*
+    *Aqui estarán alojados los campos obligatorios con sus debidas restricciones
+    *los cuales no podran permitir avanzar a la siguiente funcion hasta que se
+    *hayan ingresado los campos
+     */
     @Required
     public String nombre;
 

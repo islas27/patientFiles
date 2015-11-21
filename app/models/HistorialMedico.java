@@ -33,6 +33,10 @@ public class HistorialMedico extends Model{
     @Reference
     public ExpedienteMedico expediente;
 
+    /*
+    * Se encargará de guardar los datos del historial medico del cliente
+    * que se agregará con cada cita que tenga el paciente con el doctor
+    */
     public HistorialMedico(String motivoConsulta, String antecedentesFamilires, String higientePersonal, Boolean Embarazo, Integer mes, String rutaClinica, Blob diagrama, String descripcion, Date fecha, Blob evidencia, ExpedienteMedico expediente) {
         this.motivoConsulta = motivoConsulta;
         this.antecedentesFamilires = antecedentesFamilires;

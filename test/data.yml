@@ -407,7 +407,7 @@ Cliente(CLI4):
     ciudad: Chihuahua
     esHombre: n
     ocupacion: Empleado
-    estadoCivil: Casad0
+    estadoCivil: Casado
     domicilio: Avenida de los chimex 5675
     colonia: Nuevo Campus
     telefono: 569-4523
