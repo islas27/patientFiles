@@ -1,0 +1,315 @@
+#{extends 'mainMembers.html'/}
+#{set title:'PatientFiles | Nvo. Paciente'/}
+
+#{set 'moreStyles'}
+<link href="@{'/public/css/plugins/steps/jquery.steps.css'}" rel="stylesheet">
+<link href="@{'/public/css/plugins/chosen/chosen.css'}" rel="stylesheet">
+<style>
+    .wizard > .content > .body {
+        position: relative;
+    }
+
+    .wizard > .content{
+        overflow: visible;
+    }
+</style>
+#{/set}
+
+
+<!--=========================PAGE CONTENT========================-->
+<form role="form" action="#">
+
+    <div class="col-lg-12">
+        <div class="ibox">
+            <div class="ibox-content">
+                <h2>
+                    Registro de nuevo paciente
+                </h2>
+
+                <p>
+                    A continuación escriba y seleccione la informacion que desee ingresar al sistema de su paciente
+                </p>
+
+                <div id="patient-form">
+                    <h3>Información Personal</h3>
+                    <section>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="nombre">Nombre</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm" id="nombre" name="nombre">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Apellido Paterno</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Apellido Materno</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Fecha Nac.</label>
+
+                            <div class="col-sm-8">
+                                <input type="date" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Pais Nac.</label>
+
+                            <div class="col-sm-8">
+                                <select class="form-control input-sm chosen-select">
+                                    <option value="Mexico">Mexico</option>
+                                    <option value="United States" selected="selected">United States</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="Ireland">Ireland</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="New Zealand">New Zealand</option>
+                                    <option value="null">-------------------</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Estado Nac.</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Ciudad Nac.</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Edad</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label             col-sm-4">Sexo</label>
+
+                            <div class="col-sm-8">
+                                <select id="formInput32" class="form-control input-sm chosen-select">
+                                    <option>M</option>
+                                    <option>F</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label            col-sm-4">Edo. Civil</label>
+
+                            <div class="col-sm-8">
+                                <select id="formInput40" class="form-control input-sm chosen-select">
+                                    <option>Soltero(a)</option>
+                                    <option>Casado(a)</option>
+                                    <option>Divorciado(a)</option>
+                                    <option>Union Libre</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Ocupacion</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Domicilio</label>
+
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Colonia</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Telefono</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <br>
+                    </section>
+                    <h3>Familiar responsable</h3>
+                    <section>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Nombre</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Domicilio</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Telefono</label>
+
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <br>
+                    </section>
+                    <h3>Historia medica</h3>
+                    <section>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" >Motivo de la consulta</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control input-sm" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" >Antecedentes Familiares</label>
+                            <div class="col-sm-8">
+                                <textarea class="form-control input-sm" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" >Higiene General</label>
+                            <div class="col-sm-8">
+                                <select class="form-control input-sm  chosen-select">
+                                    <option>Excelente</option>
+                                    <option>Buena</option>
+                                    <option>Regular</option>
+                                    <option>Mala</option>
+                                    <option>Pesima</option>
+                                    <option>Nula</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-4 col-sm-8">
+                                <div class="checkbox">
+                                    <label class="control-label">
+                                        <input type="checkbox" value="">&nbsp;&nbsp;Embarazo
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Trimestre</label>
+                            <div class="col-sm-6">
+                                <select class="form-control input-sm chosen-select">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                    </section>
+                    <h3>Inmunizaciones y Vicios</h3>
+                    <section>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4">Inmunizaciones</label>
+                            <div class="col-sm-6">
+                                <select data-placeholder="Seleccione" class="chosen-select" multiple tabindex="-1" style="display: none;">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-4 ">Vicios</label>
+                            <div class="col-sm-6">
+                                <select data-placeholder="Seleccione" class="chosen-select" multiple tabindex="-1" style="display: none;">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+                    <h3>Antecendentes patologicos</h3>
+                    <section>
+                        <select data-placeholder="Seleccione" multiple id="antecedentes_patologicos" class="chosen-select"
+                        required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <p><br><b>Nota:</b> Sostenga la tecla CTRL o CMD ⌘ para evitar se cierre el selector.</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+#{set 'moreScripts'}
+<script src="@{'/public/js/plugins/staps/jquery.steps.min.js'}"></script>
+<script src="@{'/public/js/plugins/validate/jquery.validate.min.js'}"></script>
+<script src="@{'/public/js/plugins/chosen/chosen.jquery.js'}"></script>
+<script type="application/x-javascript">
+    $(document).ready(function () {
+        $("#patient-form").steps({
+            headerTag: "h3",
+            bodyTag: "section",
+            stepsOrientation: "vertical",
+            enableAllSteps: true
+        });
+        $(".chosen-select").chosen({
+            width:"100%",
+            disable_search: true
+        });
+    });
+</script>
+#{/set}

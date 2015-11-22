@@ -18,4 +18,8 @@ public class Members extends Controller {
     public static void myProfile(){
         render();
     }
+
+    public static void newPatient(){
+        render();
+    }
 }
