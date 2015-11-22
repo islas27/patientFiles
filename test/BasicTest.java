@@ -10,4 +10,10 @@ public class BasicTest extends UnitTest {
         assertEquals(2, 1 + 1);
     }
 
-}
+    }
+
+    public void pruebaUsuario(){
+        assertNotNull(Usuario.ByEmail("juan@hotmail.com"));
+        assertNotNull(Usuario.ByEmailAndPassword("juan"));
+
+    }
