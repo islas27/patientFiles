@@ -6,10 +6,31 @@
 
 package models;
 
+import java.util.Date;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Reference;
+import play.modules.morphia.Blob;
+import play.modules.morphia.Model;
+
 /**
  *
  * @author jesus
  */
-public class Proceso {
+@Entity
+public class Proceso extends Model{
+
+    public String descripcion;
+
+    public Blob multimedia;
+
+    @Reference
+    public Proceso siguiente;
+
+    @Reference
+    public Cita cita;
+
+    public String toString(){
+        return this.descripcion.substring(30);
+    }
 
 }

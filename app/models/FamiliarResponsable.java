@@ -1,7 +1,7 @@
 package models;
 
 
-import com.google.code.morphia.annotations.Embedded;
+import org.mongodb.morphia.annotations.Embedded;
 import play.data.validation.*;
 
 /**
@@ -31,6 +31,8 @@ public class FamiliarResponsable{
         this.telefono = telefono;
     }
 
-    
+    public String toString (){
+        return this.nombre;
+    }
 
 }

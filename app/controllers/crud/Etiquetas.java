@@ -4,12 +4,19 @@
  * and open the template in the editor.
  */
 
-package models;
+package controllers.crud;
+
+import controllers.CRUD;
+import controllers.Secure;
+import controllers.Check;
+import play.mvc.With;
 
 /**
  *
  * @author jesus
  */
-public class Diagnostico {
+@With(Secure.class)
+@Check("administrador")
+public class Etiquetas extends CRUD{
 
 }
