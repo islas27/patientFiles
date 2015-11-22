@@ -6,6 +6,7 @@
 
 package models;
 
+import java.util.Objects;
 import org.mongodb.morphia.annotations.Entity;
 import play.modules.morphia.Model;
 
@@ -22,8 +23,32 @@ public class Permiso extends Model{
         this.nombre = nombre;
     }
 
+    @Override
     public String toString(){
         return this.nombre;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Permiso other = (Permiso) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        return true;
+    }
+
+    
 
 }
