@@ -1,7 +1,30 @@
 #{extends 'mainMembers.html'/}
 #{set title:'PatientFiles | Inicio'/}
 
+#{set 'moreStyles'}
+<link href="css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+<link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+<link href="css/plugins/chosen/chosen.css" rel="stylesheet">
+
+<style>
+    .clockpicker-popover {
+        z-index: 999999;
+    }
+    .chosen-container-single .chosen-single {
+        width: 200px;
+    }
+    .chosen-container .chosen-drop {
+        width: 200px;
+    }
+    .datepicker-dropdown {
+        z-index: 999999 !important;
+    }
+</style>
+#{/set}
+
 <!--=========================PAGE CONTENT========================-->
+
+#{citaMembers/}
 
 <div class="col-lg-4">
     <div class="">
@@ -74,7 +97,29 @@
         </div>
         <div class="ibox-footer">
             <button class="btn btn-sm btn-outline btn-warning">Editar Cita</button>
-            <button class="btn btn-sm btn-outline btn-primary pull-right">Nueva cita</button>
+            <button class="btn btn-sm btn-outline btn-primary pull-right" id="button-new-ap">Nueva cita</button>
         </div>
     </div>
 </div>
+#{set 'moreScripts'}
+<!-- Chosen -->
+<script src="js/plugins/chosen/chosen.jquery.js"></script>
+
+<!-- Data picker -->
+<script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+<!-- Clock picker -->
+<script src="js/plugins/clockpicker/clockpicker.js"></script>
+
+<script type="text/javascript">
+    $('#button-new-ap').click(function () {
+        $('#myModal').modal('show');  // #myModal (id of modal box)
+        function show_popup() {
+            $('.clockpicker').clockpicker();   // colorpicker js
+            $( "#datepicker" ).datepicker();
+        };
+        window.setTimeout(show_popup, 200);
+    });
+    $(".chosen-select").chosen();
+</script>
+#{/set}
