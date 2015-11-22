@@ -16,29 +16,36 @@ import play.mvc.With;
 @Check("Member")
 public class Members extends Controller {
 
-    public static void index(){
+    public static void index() {
         Date hoy = new Date();
         Usuario usuario = Usuario.ByEmail(Seguridad.connected());
         Long pacientes = Cliente.getPacientes(usuario.email).stream().count();
         List<Cita> citas = Cita.getCitasByDoctorAndDate(usuario.email, hoy);
         Long hojas = Cita.getCitasByDoctor(usuario.email).stream()
-                .filter( c -> c.proceso != null).count();
+                .filter(c -> c.proceso != null).count();
         Long nCitas = hojas;
         hojas += citas.size();
         hojas += pacientes * 4;
-        Long dias = usuario.caducidadPlan.getTime() - new Date().getTime();
-        dias /= 1000;
-        dias /= 3600;
-        dias /= 24;
+
+        Long dias = new Long(0);
+
+        try {
+            dias = usuario.caducidadPlan.getTime() - new Date().getTime();
+            dias /= 1000;
+            dias /= 3600;
+            dias /= 24;
+        } catch (Exception ex) {
+
+        }
 
         render(pacientes, hojas, dias, citas, usuario, nCitas);
     }
 
-    public static void listPatients(){
+    public static void listPatients() {
         render();
     }
 
-    public static void myProfile(){
+    public static void myProfile() {
         render();
     }
 }
