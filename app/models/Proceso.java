@@ -6,9 +6,10 @@
 
 package models;
 
+import java.util.Date;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Reference;
-import java.util.Date;
+import play.modules.morphia.Blob;
 import play.modules.morphia.Model;
 
 /**
@@ -20,7 +21,7 @@ public class Proceso extends Model{
 
     public String descripcion;
 
-    public String multimedia;
+    public Blob multimedia;
 
     @Reference
     public Proceso siguiente;

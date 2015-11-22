@@ -11,6 +11,7 @@ import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Reference;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 import play.modules.morphia.Model;
 
 /**
@@ -35,16 +36,16 @@ public class Cita extends Model{
     public Date fin;
 
     public static List<Cita> getCitasByDoctorAndDate(String doctor, Date date){
-        Date date2;
-        Calendar calendario = Calendar.getInstance();
-        calendario.setTime(date);
-        calendario.roll(Calendar.DATE, true);
-        date2 = calendario.getTime();
-        return Cita.q().filter(" inicio > ", date).filter("fin < ", date2).asList();
+        return getCitasByDoctor(doctor).stream().filter(c -> c.inicio.before(date))
+                .collect(Collectors.toList());
     }
 
     public static List<Cita> getCitasByCliente(Cliente cliente){
         return Cita.find("paciente", cliente).asList();
+    }
+
+    public static List<Cita> getCitasByDoctor(String doctor){
+        return Cita.filter("doctor", doctor).asList();
     }
 
     @Override
