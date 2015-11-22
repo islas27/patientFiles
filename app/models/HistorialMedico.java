@@ -13,8 +13,9 @@ import play.modules.morphia.Blob;
 import play.modules.morphia.Model;
 
 /**
- *
- * @author jesus
+ * Modelo que se encargará de guardar los datos del historial medico del cliente
+ * que se agregará con cada cita que tenga el paciente con el doctor
+ */
  */
 @Entity
 public class HistorialMedico extends Model{
@@ -38,10 +39,7 @@ public class HistorialMedico extends Model{
     public Proceso primerProceso;
 
     public String doctor;
-    /*
-    * Se encargará de guardar los datos del historial medico del cliente
-    * que se agregará con cada cita que tenga el paciente con el doctor
-    */
+
     public HistorialMedico(String motivoConsulta, String antecedentesFamilires, String higientePersonal, Boolean Embarazo, Integer mes, String rutaClinica, Blob diagrama, String descripcion, Date fecha, Blob evidencia, ExpedienteMedico expediente, Proceso primerProceso, String doctor) {
         this.motivoConsulta = motivoConsulta;
         this.antecedentesFamilires = antecedentesFamilires;

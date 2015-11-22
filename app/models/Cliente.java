@@ -7,17 +7,15 @@ import play.data.validation.*;
 import play.modules.morphia.Model;
 
 /**
+ * Modelo que registrará al Cliente/Paciente
  *
- * @author jesus
  */
 
 @Entity
 public class Cliente extends Model{
 
-    /*
-    *Aqui estarán alojados los campos obligatorios con sus debidas restricciones
-    *los cuales no podran permitir avanzar a la siguiente funcion hasta que se
-    *hayan ingresado los campos
+    /**
+    * Campos obligatorios para el registro del cliente
      */
     @Required
     public String nombre;

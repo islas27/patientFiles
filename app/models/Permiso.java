@@ -12,8 +12,7 @@ import play.modules.morphia.Model;
 
 
 /**
- *
- * @author jesus
+ * Modelo que administra los permisos de los Usuarios
  */
 @Entity
 public class Permiso extends Model{

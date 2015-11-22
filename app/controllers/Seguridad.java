@@ -9,7 +9,7 @@ import models.Permiso;
 import models.Usuario;
 
 /**
- * Controlador que
+ * Controlador que autentica los logins de los usuarios y maneja los permisos
  */
 public class Seguridad extends Secure.Security {
 
