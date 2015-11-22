@@ -11,9 +11,10 @@ import controllers.Check;
 import controllers.CRUD;
 import controllers.Secure;
 
+
 /**
- *
- * @author jesus
+*Controlador que se encarga de enlazar el modelo Usuarios al crud
+*@see models.Usuario
  */
 @With(Secure.class)
 @Check("administrador")

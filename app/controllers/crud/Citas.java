@@ -12,8 +12,8 @@ import controllers.Check;
 import play.mvc.With;
 
 /**
- *
- * @author jesus
+*Controlador que se encarga de enlazar el modelo Citas al crud
+*@see models.Cita
  */
 @With(Secure.class)
 @Check("administrador")

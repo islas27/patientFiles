@@ -12,6 +12,10 @@ import play.mvc.With;
 /**
  * Created by islas on 11/16/15.
  */
+
+/**
+ * Controlador de la ventana para miembro usuario de la pagina
+ */
 @With(Secure.class)
 @Check("Member")
 public class Members extends Controller {
