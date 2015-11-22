@@ -9,6 +9,7 @@ package models;
 import java.util.Date;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Reference;
+import play.modules.morphia.Blob;
 import play.modules.morphia.Model;
 
 /**
@@ -28,10 +29,12 @@ public class Usuario extends Model{
 
     public Date birthday;
 
+    public Blob foto;
+
     @Reference
     public Rol rol;
 
-    public  Date caducidadPalan;
+    public  Date caducidadPlan;
 
     public static Usuario ByEmail(String email){
         return Usuario.find("byEmail", email).first();

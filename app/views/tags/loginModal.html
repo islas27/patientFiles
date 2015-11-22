@@ -6,28 +6,44 @@ División que abrirá un Modal que permita el inicio de sesión de cuenta
 
             <!-- Modal content-->
             <div class="modal-content">
+                
+                #{form @Secure.authenticate()}
+                    
+                    #{if flash.error}
+			<p class="error">
+				&{flash.error}
+			</p>
+                    #{/if}
+                    #{if flash.success}
+			<p class="success">
+				&{flash.success}
+			</p>
+                    #{/if}
+                
                 <div class="modal-header">
                     <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
                     <h4 class="modal-title">Inicio de Sesión</h4>
                 </div>
                 <div class="modal-body">
+                    
+                    
                     <div class="form-group has-icon-left form-control-name">
                         <!--#{field 'nombre'}-->
-                        <label class="sr-only" for="inputName">Ingresa Tu Nombre</label>
-                        <input type="text" class="form-control form-control-lg" id="inputName" placeholder="Ingresa Tu Nombre">
+                        <label class="sr-only" for="username">Ingresa Tu Nombre</label>
+                        <input name="username" type="text" class="form-control form-control-lg" id="inputName" placeholder="Ingresa Tu Nombre">
                         <!--#{/field}-->
                     </div>
                     <div class="form-group has-icon-left form-control-password">
                         <!--#{field 'password'}-->
-                        <label class="sr-only" for="inputPassword">Ingresa Tu Contraseña</label>
-                        <input type="password" class="form-control form-control-lg" id="inputPassword" placeholder="Ingresa Tu Contraseña" autocomplete="off">
+                        <label class="sr-only" for="password">Ingresa Tu Contraseña</label>
+                        <input name="password" type="password" class="form-control form-control-lg" id="inputPassword" placeholder="Ingresa Tu Contraseña" autocomplete="off">
                         <!--#{/field}-->
                     </div>
                     <div class="clearfix hidden-xl-up"></div>
-                    </div>
+                </div>
 
                 <div class="checkbox" style="text-align:left"> &nbsp &nbsp
-                    <label><input type="checkbox"> Recordar Mi Contraseña</label>
+                    <label for="remember"><input type="checkbox" name="remember"> Recordar Mi Contraseña</label>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary btn-block" data-dismiss="modal">Entrar</button>
@@ -48,6 +64,7 @@ División que abrirá un Modal que permita el inicio de sesión de cuenta
                         </a>
                     </div>
                 </div>
+                #{/form}
             </div>
         </div>
    </div>
