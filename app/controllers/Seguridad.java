@@ -6,6 +6,7 @@
 
 package controllers;
 
+import java.util.stream.Collectors;
 import models.Usuario;
 
 /**
@@ -20,7 +21,9 @@ public class Seguridad extends Secure.Security{
     }
 
     static boolean check(String profile) {
-        return true;
+        Usuario user = Usuario.ByEmail(Seguridad.connected());
+        return user.rol.permisos.stream().map(p -> p.toString())
+                .collect(Collectors.toList()).contains(user);
     }
 
 }
