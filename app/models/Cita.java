@@ -6,10 +6,51 @@
 
 package models;
 
+import java.util.Calendar;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Reference;
+import java.util.Date;
+import java.util.List;
+import play.modules.morphia.Model;
+
 /**
  *
  * @author jesus
  */
-public class Cita {
+@Entity
+public class Cita extends Model{
+
+    @Reference
+    public Cliente paciente;
+
+    @Reference
+    public Proceso proceso;
+
+    public String descripcion;
+
+    public String doctor;
+
+    public Date inicio;
+
+    public Date fin;
+
+    public static List<Cita> getCitasByDoctorAndDate(String doctor, Date date){
+        Date date2;
+        Calendar calendario = Calendar.getInstance();
+        calendario.setTime(date);
+        calendario.roll(Calendar.DATE, true);
+        date2 = calendario.getTime();
+        return Cita.q().filter(" inicio > ", date).filter("fin < ", date2).asList();
+    }
+
+    public static List<Cita> getCitasByCliente(Cliente cliente){
+        return Cita.find("paciente", cliente).asList();
+    }
+
+    @Override
+    public String toString(){
+        return String.format("%s %s %s", inicio.toString(),
+                doctor.toString(), paciente.toString());
+    }
 
 }

@@ -6,8 +6,8 @@
 
 package models;
 
-import com.google.code.morphia.annotations.Entity;
-import com.google.code.morphia.annotations.Reference;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Reference;
 import java.util.Date;
 import play.modules.morphia.Blob;
 import play.modules.morphia.Model;
@@ -33,11 +33,16 @@ public class HistorialMedico extends Model{
     @Reference
     public ExpedienteMedico expediente;
 
+
+    @Reference
+    public Proceso primerProceso;
+
+    public String doctor;
     /*
     * Se encargará de guardar los datos del historial medico del cliente
     * que se agregará con cada cita que tenga el paciente con el doctor
     */
-    public HistorialMedico(String motivoConsulta, String antecedentesFamilires, String higientePersonal, Boolean Embarazo, Integer mes, String rutaClinica, Blob diagrama, String descripcion, Date fecha, Blob evidencia, ExpedienteMedico expediente) {
+    public HistorialMedico(String motivoConsulta, String antecedentesFamilires, String higientePersonal, Boolean Embarazo, Integer mes, String rutaClinica, Blob diagrama, String descripcion, Date fecha, Blob evidencia, ExpedienteMedico expediente, Proceso primerProceso, String doctor) {
         this.motivoConsulta = motivoConsulta;
         this.antecedentesFamilires = antecedentesFamilires;
         this.higientePersonal = higientePersonal;
@@ -49,8 +54,12 @@ public class HistorialMedico extends Model{
         this.fecha = fecha;
         this.evidencia = evidencia;
         this.expediente = expediente;
+        this.primerProceso = primerProceso;
+        this.doctor = doctor;
     }
 
-    
+    public String toString(){
+        return this.motivoConsulta;
+    }
 
 }
