@@ -11,9 +11,10 @@ import controllers.Secure;
 import controllers.Check;
 import play.mvc.With;
 
+
 /**
- *
- * @author jesus
+*Controlador que se encarga de enlazar el modelo Etiquetas al crud
+*@see models.Etiqueta
  */
 @With(Secure.class)
 @Check("administrador")

@@ -5,6 +5,9 @@ import play.mvc.*;
 import java.util.*;
 import models.*;
 
+/**
+ *Controlador de paginas públicas
+ */
 public class Application extends Controller {
 
     public static void index() {
@@ -15,16 +18,8 @@ public class Application extends Controller {
         render();
     }
 
-
     public static void newDentist(){
-        //Usuario usr = new Usuario();
-        //render(usr);
         render();
-
-        /*
-        *Lo que realiza esta funcion es crea el nuevo usuario, que seria
-        *en este caso el dentista
-        */
     }
 
    /*public static void saveUser(Usuario usr){

@@ -10,8 +10,7 @@ import models.Permiso;
 import models.Usuario;
 
 /**
- *
- * @author jesus
+ * Controlador que
  */
 public class Seguridad extends Secure.Security{
 
