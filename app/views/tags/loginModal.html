@@ -3,72 +3,48 @@ División que abrirá un Modal que permita el inicio de sesión de cuenta
 -->
    <div class="modal fade" id="loginModal" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
-                
-                #{form @Secure.authenticate()}
-                    
+                #{form @Secure.authenticate(), method:'post'}
                     #{if flash.error}
-			<p class="error">
-				&{flash.error}
-			</p>
+			            <p class="error">&{flash.error}</p>
                     #{/if}
                     #{if flash.success}
-			<p class="success">
-				&{flash.success}
-			</p>
-                    #{/if}
-                
-                <div class="modal-header">
-                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
-                    <h4 class="modal-title">Inicio de Sesión</h4>
-                </div>
-                <div class="modal-body">
-                    
-                    
-                    <div class="form-group has-icon-left form-control-name">
-                        <!--#{field 'nombre'}-->
-                        <label class="sr-only" for="username">&{'Seguridad.username'}</label>
-                        <input name="username" type="text" class="form-control form-control-lg" id="inputName"
-                        value="${flash.username}" placeholder="Ingresa Tu Nombre">
-                        <!--#{/field}-->
+                        <p class="success">&{flash.success}</p>
+                        #{/if}
+                    <div class="modal-header">
+                        <h4 class="modal-title">Inicio de Sesión</h4>
                     </div>
-                    <div class="form-group has-icon-left form-control-password">
-                        <!--#{field 'password'}-->
-                        <label class="sr-only" for="password">&{'Seguridad.password'}</label>
-                        <input name="password" type="password" class="form-control form-control-lg" id="inputPassword"
-                        value="" placeholder="Ingresa Tu Contraseña" autocomplete="off">
-                        <!--#{/field}-->
+                    <div class="modal-body">
+                        <div class="form-group has-icon-left form-control-name">
+                            <label class="sr-only" for="username">&{'secure.username'}</label>
+                            <input name="username" type="text" class="form-control form-control-lg" id="username"
+                            value="${flash.username}" placeholder="Ingresa Tu Nombre">
+                        </div>
+                        <div class="form-group has-icon-left form-control-password">
+                            <label class="sr-only" for="password">&{'secure.password'}</label>
+                            <input name="password" type="password" class="form-control form-control-lg" id="password"
+                            value="" placeholder="Ingresa Tu Contraseña" autocomplete="off">
+                        </div>
+                        <div class="checkbox" style="text-align:left"> &nbsp &nbsp
+                            <label for="remember">
+                                <input type="checkbox" name="remember" id="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />
+                            Recordarme
+                            </label>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-social btn-social-icon btn-social-google">
+                                <span class="icon-google"></span>
+                            </a>
+                            <a href="#" class="btn btn-social btn-social-icon btn-social-linkedin">
+                                <span class="icon-linkedin"></span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="clearfix hidden-xl-up"></div>
-                </div>
-
-                <div class="checkbox" style="text-align:left"> &nbsp &nbsp
-                    <label for="remember"><input type="checkbox" name="remember" value="true" ${flash.remember ? 'checked="true"' : ''} />
-                        &{'Seguridad.remember'}
-                    </label>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary btn-block" data-dismiss="modal" id="signin" value="&{'secure.signin'}">Entrar</button>
-                </div>
-                <div class="modal-body">
-                    <!--<a href="#" class="btn btn-social btn-block bg-google">
-                        <span class="icon-google"></span> Inicia Sesión Con Google
-                    </a>-->
-                    <!--<a href="#" class="btn btn-social btn-block bg-linkedin">
-                        <span class="icon-linkedin"></span> Inicia Sesión Con LinkedIn
-                    </a>-->
-                    <div class="text-center">
-                        <a href="#" class="btn btn-social btn-social-icon btn-social-google">
-                            <span class="icon-google"></span>
-                        </a>
-                        <a href="#" class="btn btn-social btn-social-icon btn-social-linkedin">
-                            <span class="icon-linkedin"></span>
-                        </a>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary btn-block" id="signin" value="Entrar">
                     </div>
-                </div>
                 #{/form}
             </div>
         </div>
-   </div>
+    </div>
