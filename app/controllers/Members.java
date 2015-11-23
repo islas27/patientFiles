@@ -1,8 +1,10 @@
 package controllers;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
 import java.util.List;
@@ -39,8 +41,6 @@ public class Members extends Controller {
         hojas += citas.size();
         hojas += pacientes * 4;
         List<Cliente> lista = Cliente.getPacientes(Seguridad.connected());
-        usuario.setCaducidadPlanDate(LocalDate.of(2015, Month.DECEMBER, 23));
-
         Long dias;
 
         if (usuario.getCaducidadPlanDate() == null) {
@@ -71,32 +71,40 @@ public class Members extends Controller {
         render(em, patologicos, inmunizaciones, adicciones);
     }
 
-    public static void newAppointment(String pacienteId,
-            @Required(message = "Es requerida una descripcion") String descripcion/*,
-            Date inicio, Date fin*/) {
-//
-//        if (Cita.getCitasByDoctor(Seguridad.connected()).stream()
-//                .filter(c -> {
-//                    return (c.inicio.after(inicio) && c.fin.before(inicio))
-//                    || (c.inicio.after(fin) && c.fin.before(fin));
-//                }).count() > 0) {
-//            flash.error("Las citas se empalman");
-//            render("/members/index");
-//        }
-//        if (validation.hasErrors()) {
-//            render("/members/index");
-//        }
-//
-//        Cita cita = new Cita();
-//        cita.doctor = Seguridad.connected();
-//        cita.paciente = Cliente.findById(pacienteId);
-//        cita.inicio = inicio;
-//        cita.fin = fin;
-//        cita.proceso = new Proceso();
-//
-//        cita.save();
-//        flash.success("Todo bien");
-//        index();
+    public static void newAppointment(String paciente,String razon, String fecha, String inittime, String endtime ){
+        LocalDateTime inicio = LocalDateTime.parse(fecha + "T" + inittime, DateTimeFormatter.ofPattern("dd/MM/yyyyTHH:mm"));
+        LocalDateTime fin = LocalDateTime.parse(fecha + "T" + endtime, DateTimeFormatter.ofPattern("dd/MM/yyyyTHH:mm"));
+
+        if (fin.isBefore(inicio)) {
+            flash.error("El inicio debe ir antes del fin");
+            render("/members/index");
+        }
+        if (Cita.getCitasByDoctor(Seguridad.connected()).stream()
+                .filter(c -> {
+                    return (c.getInicioDate().isAfter(inicio) && c.getFinDate().isBefore(inicio))
+                    || (c.getInicioDate().isAfter(fin) && c.getFinDate().isBefore(fin));
+                }).count() > 0) {
+            flash.error("Las citas se empalman");
+            render("/members/index");
+        }
+        if (razon == null) {
+            flash.error("Las citas deben tener alguna razon");
+            render("/members/index");
+        }
+        if (validation.hasErrors()) {
+            render("/members/index");
+        }
+
+        Cita cita = new Cita();
+        cita.doctor = Seguridad.connected();
+        cita.paciente = Cliente.findById(paciente);
+        cita.setInicioDate(inicio);
+        cita.setFinDate(fin);
+        cita.proceso = new Proceso();
+
+        cita.save();
+        flash.success("Todo bien");
+        index();
     }
 
     public static void patient(){

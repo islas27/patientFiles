@@ -20,9 +20,9 @@ public class Seguridad extends Secure.Security {
     }
 
     static boolean check(String profile) {
-//        Usuario user = Usuario.ByEmail(Seguridad.connected());
-//        return user.rol.permisos.contains(new Permiso(profile));
-        return true;
+        Usuario user = Usuario.ByEmail(Seguridad.connected());
+        return user.rol.permisos.contains(new Permiso(profile));
+//        return true;
     }
 
     static void onDisconnected() {
@@ -30,17 +30,17 @@ public class Seguridad extends Secure.Security {
     }
 
     static void onAuthenticated() {
-//        Usuario user = Usuario.ByEmail(Seguridad.connected());
-//        if (user.rol.permisos.contains(new Permiso("administrador"))) {
-//            CRUD.index();
-//        } else {
-//            if (user.rol.permisos.contains(new Permiso("Member"))) {
-//                Members.index();
-//            } else {
-//                Application.index();
-//            }
-//        }
-//
+        Usuario user = Usuario.ByEmail(Seguridad.connected());
+        if (user.rol.permisos.contains(new Permiso("administrador"))) {
+            CRUD.index();
+        } else {
+            if (user.rol.permisos.contains(new Permiso("Member"))) {
+                Members.index();
+            } else {
+                Application.index();
+            }
+        }
+
     }
 
 }
