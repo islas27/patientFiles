@@ -39,7 +39,7 @@ public class Cita extends Model{
     public static List<Cita> getCitasByDoctorAndDate(String doctor, LocalDate today){
         LocalDate tomorrow = today.plusDays(1);
         return getCitasByDoctor(doctor).stream()
-                .filter(c -> {return c.getInicio().toLocalDate().isAfter(today) && c.getFin().toLocalDate().isBefore(tomorrow);})
+                .filter(c -> {return c.getInicioDate().toLocalDate().isAfter(today) && c.getFinDate().toLocalDate().isBefore(tomorrow);})
                 .collect(Collectors.toList());
     }
 
@@ -51,20 +51,20 @@ public class Cita extends Model{
         return Cita.filter("doctor", doctor).asList();
     }
 
-    public LocalDateTime getInicio(){
+    public LocalDateTime getInicioDate(){
         return LocalDateTime.parse(this.inicio, DateTimeFormatter.ofPattern("yyyyMMddHHmm"));
     }
 
-    public void  setInicio(LocalDateTime date){
+    public void  setInicioDate(LocalDateTime date){
         DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
         this.inicio = date.format(formater);
     }
 
-    public LocalDateTime getFin(){
+    public LocalDateTime getFinDate(){
         return LocalDateTime.parse(this.fin, DateTimeFormatter.ofPattern("yyyyMMddHHmm"));
     }
 
-    public void  setFin(LocalDateTime date){
+    public void  setFinDate(LocalDateTime date){
         DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
         this.fin = date.format(formater);
     }

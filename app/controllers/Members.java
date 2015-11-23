@@ -2,6 +2,7 @@ package controllers;
 
 import java.util.List;
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.Period;
 import java.time.temporal.TemporalUnit;
 import models.Cita;
@@ -38,7 +39,7 @@ public class Members extends Controller {
         hojas += pacientes * 4;
         List<Cliente> lista = Cliente.getPacientes(Seguridad.connected());
 
-        Integer dias = Period.between(hoy, usuario.getCaducidadPlan()).getDays();
+        Integer dias = ( usuario.getCaducidadPlanDate() == null ? 0 : Period.between(hoy, usuario.getCaducidadPlanDate()).getDays());
 
         render(pacientes, hojas, dias, citas, usuario, nCitas, lista);
     }
@@ -53,18 +54,18 @@ public class Members extends Controller {
     }
 
     public static void newPatient() {
-//        List<Etiqueta> inmunizaciones = Etiqueta.find("tipo", "Inmunizacion").asList();
-//        List<Etiqueta> patologicos = Etiqueta.find("tipo", "Patologico").asList();
-//        List<Etiqueta> adicciones = Etiqueta.find("tipo", "Adiccion").asList();
-//        Cliente paciente = new Cliente();
-//        FamiliarResponsable fr = new FamiliarResponsable(null, null, null);
-//        ExpedienteMedico em = new ExpedienteMedico(paciente, fr);
-//        render(em, patologicos, inmunizaciones, adicciones);
-//    }
-//
-//    public static void newAppointment(String pacienteId,
-//            @Required(message = "Es requerida una descripcion") String descripcion,
-//            /*Date inicio, Date fin*/) {
+        List<Etiqueta> inmunizaciones = Etiqueta.find("tipo", "Inmunizacion").asList();
+        List<Etiqueta> patologicos = Etiqueta.find("tipo", "Patologico").asList();
+        List<Etiqueta> adicciones = Etiqueta.find("tipo", "Adiccion").asList();
+        Cliente paciente = new Cliente();
+        FamiliarResponsable fr = new FamiliarResponsable(null, null, null);
+        ExpedienteMedico em = new ExpedienteMedico(paciente, fr);
+        render(em, patologicos, inmunizaciones, adicciones);
+    }
+
+    public static void newAppointment(String pacienteId,
+            @Required(message = "Es requerida una descripcion") String descripcion/*,
+            Date inicio, Date fin*/) {
 //
 //        if (Cita.getCitasByDoctor(Seguridad.connected()).stream()
 //                .filter(c -> {

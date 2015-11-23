@@ -29,7 +29,7 @@ public class Usuario extends Model{
 
     public String birthday;
 
-    public Blob foto;
+//    public Blob foto;
 
     @Reference
     public Rol rol;
@@ -44,23 +44,36 @@ public class Usuario extends Model{
         return Usuario.find("byEmailAndPassword", email, password).first();
     }
 
-    public LocalDate getBirthday(){
-        return LocalDate.parse(this.birthday, DateTimeFormatter.ofPattern("yyyyMMddHHmm"));
+    public LocalDate getBirthdayDate(){
+        try{
+            return LocalDate.parse(this.birthday, DateTimeFormatter.ofPattern("yyyyMMdd"));
+        }catch (Exception ex) {
+            return null;
+        }
     }
 
-    public void  setBirthday(LocalDate date){
-        DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
+    public void  setBirthdayDate(LocalDate date){
+        DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyyMMdd");
         this.birthday = date.format(formater);
     }
 
-    public LocalDate getCaducidadPlan(){
-        return LocalDate.parse(this.caducidadPlan, DateTimeFormatter.ofPattern("yyyyMMddHHmm"));
+    public LocalDate getCaducidadPlanDate(){
+        if (this.caducidadPlan == null) {
+            return null;
+        }
+        try{
+        return LocalDate.parse(this.caducidadPlan, DateTimeFormatter.ofPattern("yyyyMMdd"));
+        }catch (Exception ex) {
+            return null;
+        }
     }
 
-    public void  setCaducidadPlan(LocalDate date){
-        DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
+    public void  setCaducidadPlanDate(LocalDate date){
+        DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyyMMdd");
         this.caducidadPlan = date.format(formater);
     }
+
+
 
     public String toString(){
         return this.email;
