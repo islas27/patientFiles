@@ -110,10 +110,6 @@ public class Members extends Controller {
         index();
     }
 
-    public static void patient(){
-        render();
-    }
-
     public static void patient(String id){
         render();
     }
