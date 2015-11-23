@@ -3,13 +3,13 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+        #{form @Members.newAppointment(), class: "form-horizontal", method:'post', id:'new-appointment-form'}
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Administración de Pacientes</h4>
                 <small class="font-bold">Administre sus pacientes de forma sencilla y rápida, haga su administración más eficiente.</small>
             </div>
             <div class="modal-body">
-                #{form @Members.newAppointment(), class: "form-horizontal", method:'post', id:'new-appointment-form'}
                 <div class="form-group" style="margin-top: 15px">
                     <label for="select-paciente" class="control-label col-xs-3">Seleccione</label>
                     <div class="col-xs-9">
@@ -56,12 +56,13 @@
                             </div>
                         </div>
                     </div>
-                #{/form}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
+                <input type="submit" class="btn btn-primary" value="Guardar">
             </div>
         </div>
+        #{/form}
+
     </div>
 </div>
