@@ -29,7 +29,7 @@ public class Usuario extends Model{
 
     public String birthday;
 
-    public Blob foto;
+    //public Blob foto;
 
     @Reference
     public Rol rol;
