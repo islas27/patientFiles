@@ -132,7 +132,9 @@ public class Members extends Controller {
     }
 
     public static void patient(String id){
-        render();
+        Cliente paciente = Cliente.findById(id);
+        ExpedienteMedico em = ExpedienteMedico.find("paciente", paciente).first();
+        render(em);
     }
 
     public static void newProcedure(){
