@@ -136,8 +136,15 @@
 <script type="text/javascript">
     $('#button-new-ap').click(function () {
         var show_popup = function () {
-            $('.clockpicker').clockpicker();   // colorpicker js
-            $( "#datepicker" ).datepicker();
+            $('.clockpicker').clockpicker({
+                autoclose: true,
+                placement: 'left'
+            });   // colorpicker js
+            $( "#datepicker" ).datepicker({
+                todayHighlight: true,
+                orientation: 'left top',
+                startDate: 'month'
+            });
             $(".chosen-select").chosen({
                 width: "500px",
                 disable_search_threshold: 25,
