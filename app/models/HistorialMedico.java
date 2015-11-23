@@ -16,7 +16,6 @@ import play.modules.morphia.Model;
  * Modelo que se encargará de guardar los datos del historial medico del cliente
  * que se agregará con cada cita que tenga el paciente con el doctor
  */
- */
 @Entity
 public class HistorialMedico extends Model{
 
