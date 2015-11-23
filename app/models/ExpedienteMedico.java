@@ -15,23 +15,16 @@ import play.modules.morphia.Model;
 
 /**
  *
- * @author jesus
+ * Modelo que relaciona los datos del Cliente, con las adicciones, inmunizaciones, patologicos y crea un expediente
  */
 @Entity
 public class ExpedienteMedico extends Model{
 
     @Reference
     public Cliente paciente;
-    /*
-    *Hace referencia a la clase de Cliente llamandola paciente para su uso proximo
-     */
 
     @Embedded
     public FamiliarResponsable familiarResponsable;
-    /*
-    *Hace una copia del objeto FamiliarResponsable para el uso en esta clase
-    *de sus valores
-    */
 
     public List<String> adicciones;
 
@@ -39,14 +32,12 @@ public class ExpedienteMedico extends Model{
 
     public List<String> patologicos;
     /*
-    *Crea dentro de esta clase 3 listas nuevas, que en otra clase servirán para
-    *la elección de sus valores
+    *Crea listas, que en otra clase servirán para la elección de sus valores
     */
 
     public ExpedienteMedico(Cliente paciente, FamiliarResponsable familiarResponsable) {
         /*
-        *Crea arreglos para usar los valores de la clase Cliente/paciente y de la clase
-        *FamiliarResponsable
+        *Crea arreglos para usar los valores de las clases Cliente/paciente - FamiliarResponsable
         */
         this.paciente = paciente;
         this.familiarResponsable = familiarResponsable;

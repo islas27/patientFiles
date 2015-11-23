@@ -5,8 +5,7 @@ import org.mongodb.morphia.annotations.Embedded;
 import play.data.validation.*;
 
 /**
- * @see  Cliente
- * @author jesus
+ * Modelo que Creara a los FamiliaresResponsables de los Clientes/Pacientes
  */
 
 @Embedded
