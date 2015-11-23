@@ -39,9 +39,8 @@ public class Members extends Controller {
         Usuario usuario = Usuario.ByEmail(Seguridad.connected());
         Long pacientes = Cliente.getPacientes(usuario.email).stream().count();
         List<Cita> citas = Cita.getCitasByDoctorAndDate(usuario.email, hoy);
-        Long hojas = Cita.getCitasByDoctor(usuario.email).stream()
-                .filter(c -> c.proceso != null).count();
-        Long nCitas = hojas;
+        Long nCitas = Cita.getCitasByDoctor(usuario.email).stream().count();
+        int hojas = 0;
         hojas += citas.size();
         hojas += pacientes * 4;
         List<Cliente> lista = Cliente.getPacientes(Seguridad.connected());
@@ -53,7 +52,6 @@ public class Members extends Controller {
             dias = ChronoUnit.DAYS.between(hoy, usuario.getCaducidadPlanDate());
             //dias = Period.between(hoy, usuario.getCaducidadPlanDate()).getMonths();
         }
-        System.out.println(Cita.getCitasByDoctor(Seguridad.connected()));
         render(pacientes, hojas, dias, citas, nCitas, lista);
     }
 

@@ -39,7 +39,7 @@ public class Cita extends Model{
     public static List<Cita> getCitasByDoctorAndDate(String doctor, LocalDate today){
         LocalDate tomorrow = today.plusDays(1);
         return getCitasByDoctor(doctor).stream()
-                .filter(c -> {return c.getInicioDate().toLocalDate().isAfter(today) && c.getFinDate().toLocalDate().isBefore(tomorrow);})
+                .filter(c -> {return c.getInicioDate().toLocalDate().isEqual(today);})
                 .collect(Collectors.toList());
     }
 
