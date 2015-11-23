@@ -94,4 +94,8 @@ public class Members extends Controller {
     public static void patient(){
         render();
     }
+
+    public static void patient(String id){
+        render();
+    }
 }

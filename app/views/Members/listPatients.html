@@ -8,21 +8,20 @@
         <div class="col-sm-12">
             <div class="ibox">
                 <div class="ibox-content">
-                    <span class="text-muted small pull-right">Última modificación: <i class="fa fa-clock-o"></i> 2:10 pm - 12.06.2014</span>
                     <h2>Pacientes</h2>
                     <p>
                         Todos los pacientes se deben de verificar antes de que se les provea con un correo y tenerlos dentro del proyecto
                     </p>
-                    <div class="input-group">
+                    <!--<div class="input-group">
                         <input type="text" placeholder="Buscar paciente " class="input form-control">
                                 <span class="input-group-btn">
                                         <button type="button" class="btn btn btn-primary"> <i class="fa fa-search"></i> Buscar</button>
                                 </span>
-                    </div>
+                    </div>-->
                     <div class="clients-list">
                         <ul class="nav nav-tabs">
-                            <span class="pull-right small text-muted">1406 Pacientes</span>
-                            <li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-user"></i> Contactos</a></li>
+                            <span class="pull-right small text-muted">Pacientes: &{lista.size()}</span>
+                            <li class="active"><a data-toggle="tab" href="#tab-1"><i class="fa fa-user"></i> Pacientes</a></li>
                             <!--<li class=""><a data-toggle="tab" href="#tab-2"><i class="fa fa-briefcase"></i> Compañias</a></li>-->
                         </ul>
                         <div class="tab-content">
@@ -39,7 +38,7 @@
                                                 <td> ${P.ocupacion}</td>
                                                 <td class="contact-type"><i class="fa fa-envelope"> </i></td>
                                                 <td> ${P.correo}</td>
-                                                <td class="client-status"><span class="label label-primary"><a href="#">Archivo</a></span></td>
+                                                <td class="client-status"><span class="label label-primary"><a href="@{Members.patient(P.getIdAsStr())}">Archivo</a></span></td>
                                             </tr>
                                             #{/list}
                                             </tbody>
