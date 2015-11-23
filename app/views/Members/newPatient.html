@@ -1,3 +1,4 @@
+#{set 'user'} Dr. &{usuario.name} &{usuario.lastName} #{/set}
 #{extends 'mainMembers.html'/}
 #{set title:'PatientFiles | Nvo. Paciente'/}
 
@@ -29,7 +30,7 @@
                 <p>
                     A continuación escriba y seleccione la informacion que desee ingresar al sistema de su paciente
                 </p>
-
+                #{form @Members.createPatient(), method:'post', id:'new-patient-form'}
                 <div id="patient-form">
                     <h3>Información Personal</h3>
                     <section>
@@ -193,7 +194,7 @@
                     <h3>Familiar responsable</h3>
                     <section>
                         <div class="form-group">
-                            #{field 'nombre'}
+                            #{field 'fnombre'}
                             <label class="control-label col-sm-4">Nombre</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control input-sm" name="${field.name}">
@@ -203,7 +204,7 @@
                         <br>
 
                         <div class="form-group">
-                            #{field 'domicilio'}
+                            #{field 'fdomicilio'}
                             <label class="control-label col-sm-4">Domicilio</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control input-sm" name="${field.name}">
@@ -213,7 +214,7 @@
                         <br>
 
                         <div class="form-group">
-                            #{field 'telefono'}
+                            #{field 'ftelefono'}
                             <label class="control-label col-sm-4">Telefono</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control input-sm" name="${field.name}">
@@ -321,6 +322,7 @@
                         <p><br><b>Nota:</b> Sostenga la tecla CTRL o CMD ⌘ para evitar se cierre el selector.</p>
                     </section>
                 </div>
+                #{/form}
             </div>
         </div>
     </div>

@@ -2,20 +2,15 @@ package controllers;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Month;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.List;
 import models.Cita;
 import models.Cliente;
 import models.Etiqueta;
 import models.ExpedienteMedico;
 import models.FamiliarResponsable;
-import models.Proceso;
 import models.Usuario;
-import play.data.validation.Required;
 import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.With;
@@ -23,7 +18,6 @@ import play.mvc.With;
 /**
  * Created by islas on 11/16/15.
  */
-
 /**
  * Controlador de la ventana para miembro usuario de la pagina
  */
@@ -33,7 +27,7 @@ public class Members extends Controller {
 
     @Before
     static void setConnectedUser() {
-        if(Seguridad.isConnected()) {
+        if (Seguridad.isConnected()) {
             Usuario usuario = Usuario.find("byEmail", Seguridad.connected()).first();
             renderArgs.put("usuario", usuario);
         }
@@ -54,10 +48,11 @@ public class Members extends Controller {
 
         if (usuario.getCaducidadPlanDate() == null) {
             dias = 0L;
-        }else{
+        } else {
             dias = ChronoUnit.DAYS.between(hoy, usuario.getCaducidadPlanDate());
             //dias = Period.between(hoy, usuario.getCaducidadPlanDate()).getMonths();
         }
+        System.out.println(Cita.getCitasByDoctor(Seguridad.connected()));
         render(pacientes, hojas, dias, citas, nCitas, lista);
     }
 
@@ -67,7 +62,14 @@ public class Members extends Controller {
     }
 
     public static void myProfile() {
-        render();
+        Usuario usuario = Usuario.ByEmail(Seguridad.connected());
+        Long npac = Cliente.getPacientes(usuario.email).stream().count();
+        Long ncit = Cita.getCitasByDoctor(usuario.email).stream().count();
+        Long nhoj = ncit  + npac*4;
+        DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd MM yyyy");
+        String caducidad = usuario.getCaducidadPlanDate().format(formater);
+        String registro = LocalDate.ofEpochDay(usuario._getCreated()).format(formater);
+        render(npac, ncit, nhoj, caducidad, registro);
     }
 
     public static void newPatient() {
@@ -75,18 +77,29 @@ public class Members extends Controller {
         List<Etiqueta> patologicos = Etiqueta.find("tipo", "Patologico").asList();
         List<Etiqueta> adicciones = Etiqueta.find("tipo", "Adiccion").asList();
         Cliente paciente = new Cliente();
-        FamiliarResponsable fr = new FamiliarResponsable(null, null, null);
+        FamiliarResponsable fr = new FamiliarResponsable("", "", "");
         ExpedienteMedico em = new ExpedienteMedico(paciente, fr);
         render(em, patologicos, inmunizaciones, adicciones);
     }
 
-    public static void newAppointment(String paciente,String razon, String fecha, String inittime, String endtime ){
-        LocalDateTime inicio = LocalDateTime.parse(fecha + "T" + inittime, DateTimeFormatter.ofPattern("dd/MM/yyyyTHH:mm"));
-        LocalDateTime fin = LocalDateTime.parse(fecha + "T" + endtime, DateTimeFormatter.ofPattern("dd/MM/yyyyTHH:mm"));
+    public static void createPatient(String nombre, String apellidoPaterno,
+            String apellidoMaterno, String fechaNac, String paisNac,
+            String estadoNac, String ciudadNac, String sexo, String edoCivil,
+            String ocupacion, String domicilio, String colonia, String telefono,
+            String fnombre, String fdomicilio, String ftelefono,
+            String motivoConsulta, String antecedentesFam, String higieneGral,
+            String embarazo, String trimestre, String inmunizaciones,
+            String vicios, String antecedentes) {
 
-        if (fin.isBefore(inicio)) {
+    }
+
+    public static void newAppointment(String paciente, String razon, String fecha, String inittime, String endtime) {
+        LocalDateTime inicio = LocalDateTime.parse(fecha + inittime, DateTimeFormatter.ofPattern("MM/dd/yyyyHH:mm"));
+        LocalDateTime fin = LocalDateTime.parse(fecha + endtime, DateTimeFormatter.ofPattern("MM/dd/yyyyHH:mm"));
+
+        if (!inicio.isBefore(fin)) {
             flash.error("El inicio debe ir antes del fin");
-            render("/members/index");
+            index();
         }
         if (Cita.getCitasByDoctor(Seguridad.connected()).stream()
                 .filter(c -> {
@@ -94,14 +107,14 @@ public class Members extends Controller {
                     || (c.getInicioDate().isAfter(fin) && c.getFinDate().isBefore(fin));
                 }).count() > 0) {
             flash.error("Las citas se empalman");
-            render("/members/index");
+            index();
         }
         if (razon == null) {
             flash.error("Las citas deben tener alguna razon");
-            render("/members/index");
+            index();
         }
         if (validation.hasErrors()) {
-            render("/members/index");
+            index();
         }
 
         Cita cita = new Cita();
@@ -109,18 +122,17 @@ public class Members extends Controller {
         cita.paciente = Cliente.findById(paciente);
         cita.setInicioDate(inicio);
         cita.setFinDate(fin);
-        cita.proceso = new Proceso();
 
         cita.save();
         flash.success("Todo bien");
         index();
     }
 
-    public static void patient(){
+    public static void patient(String id){
         render();
     }
 
-    public static void patient(String id){
+    public static void newProcedure(){
         render();
     }
 }
