@@ -1,10 +1,11 @@
 package controllers;
 
-import java.util.List;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
+import java.util.List;
 import models.Cita;
 import models.Cliente;
 import models.Etiqueta;
@@ -38,9 +39,16 @@ public class Members extends Controller {
         hojas += citas.size();
         hojas += pacientes * 4;
         List<Cliente> lista = Cliente.getPacientes(Seguridad.connected());
+        usuario.setCaducidadPlanDate(LocalDate.of(2015, Month.DECEMBER, 23));
 
-        Integer dias = ( usuario.getCaducidadPlanDate() == null ? 0 : Period.between(hoy, usuario.getCaducidadPlanDate()).getDays());
+        Long dias;
 
+        if (usuario.getCaducidadPlanDate() == null) {
+            dias = 0L;
+        }else{
+            dias = ChronoUnit.DAYS.between(hoy, usuario.getCaducidadPlanDate());
+            //dias = Period.between(hoy, usuario.getCaducidadPlanDate()).getMonths();
+        }
         render(pacientes, hojas, dias, citas, usuario, nCitas, lista);
     }
 
