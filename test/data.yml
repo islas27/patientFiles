@@ -289,6 +289,7 @@ Usuario(USER1):
     name: Jonathan
     lastName: Islas
     birthday: 1992-09-20
+    caducidadPlan: 2017-12-12
     rol: ADMIN
 
 Usuario(USER2):
@@ -297,6 +298,7 @@ Usuario(USER2):
     name: Jesus
     lastName: Garcia
     birthday: 1994-07-27
+    caducidadPlan: 2017-12-12
     rol: ADMIN
 
 Usuario(USER3):
@@ -305,6 +307,7 @@ Usuario(USER3):
     name: Baruch
     lastName: Sias
     birthday: 1993-03-27
+    caducidadPlan: 2017-12-12
     rol: ADMIN
 
 Usuario(USER4):
@@ -313,6 +316,7 @@ Usuario(USER4):
     name: Mario
     lastName: Lujan
     birthday: 1994-05-25
+    caducidadPlan: 2017-12-12
     rol: ADMIN
 
 
@@ -339,6 +343,7 @@ Usuario(D3):
     name: Juan
     lastName: Perez
     birthday: 1990-01-15
+    caducidadPlan: 2015-12-23
     rol: Free_user
 
 
