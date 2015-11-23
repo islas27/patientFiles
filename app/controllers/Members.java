@@ -1,11 +1,14 @@
 package controllers;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.TimeZone;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.TemporalUnit;
 import models.Cita;
 import models.Cliente;
+import models.Etiqueta;
+import models.ExpedienteMedico;
+import models.FamiliarResponsable;
 import models.Proceso;
 import models.Usuario;
 import play.data.validation.Required;
@@ -24,7 +27,7 @@ import play.mvc.With;
 public class Members extends Controller {
 
     public static void index() {
-        Date hoy = new Date();
+        LocalDate hoy = LocalDate.now();
         Usuario usuario = Usuario.ByEmail(Seguridad.connected());
         Long pacientes = Cliente.getPacientes(usuario.email).stream().count();
         List<Cita> citas = Cita.getCitasByDoctorAndDate(usuario.email, hoy);
@@ -35,16 +38,7 @@ public class Members extends Controller {
         hojas += pacientes * 4;
         List<Cliente> lista = Cliente.getPacientes(Seguridad.connected());
 
-        Long dias = new Long(0);
-
-        try {
-            dias = usuario.caducidadPlan.getTime() - new Date().getTime();
-            dias /= 1000;
-            dias /= 3600;
-            dias /= 24;
-        } catch (Exception ex) {
-
-        }
+        Integer dias = Period.between(hoy, usuario.getCaducidadPlan()).getDays();
 
         render(pacientes, hojas, dias, citas, usuario, nCitas, lista);
     }
@@ -59,34 +53,44 @@ public class Members extends Controller {
     }
 
     public static void newPatient() {
-        render();
+//        List<Etiqueta> inmunizaciones = Etiqueta.find("tipo", "Inmunizacion").asList();
+//        List<Etiqueta> patologicos = Etiqueta.find("tipo", "Patologico").asList();
+//        List<Etiqueta> adicciones = Etiqueta.find("tipo", "Adiccion").asList();
+//        Cliente paciente = new Cliente();
+//        FamiliarResponsable fr = new FamiliarResponsable(null, null, null);
+//        ExpedienteMedico em = new ExpedienteMedico(paciente, fr);
+//        render(em, patologicos, inmunizaciones, adicciones);
+//    }
+//
+//    public static void newAppointment(String pacienteId,
+//            @Required(message = "Es requerida una descripcion") String descripcion,
+//            /*Date inicio, Date fin*/) {
+//
+//        if (Cita.getCitasByDoctor(Seguridad.connected()).stream()
+//                .filter(c -> {
+//                    return (c.inicio.after(inicio) && c.fin.before(inicio))
+//                    || (c.inicio.after(fin) && c.fin.before(fin));
+//                }).count() > 0) {
+//            flash.error("Las citas se empalman");
+//            render("/members/index");
+//        }
+//        if (validation.hasErrors()) {
+//            render("/members/index");
+//        }
+//
+//        Cita cita = new Cita();
+//        cita.doctor = Seguridad.connected();
+//        cita.paciente = Cliente.findById(pacienteId);
+//        cita.inicio = inicio;
+//        cita.fin = fin;
+//        cita.proceso = new Proceso();
+//
+//        cita.save();
+//        flash.success("Todo bien");
+//        index();
     }
 
-    public static void newAppointment(String pacienteId,
-            @Required(message = "Es requerida una descripcion") String descripcion,
-            Date inicio, Date fin) {
-
-        if (Cita.getCitasByDoctor(Seguridad.connected()).stream()
-                .filter(c -> {
-                    return (c.inicio.after(inicio) && c.fin.before(inicio))
-                    || (c.inicio.after(fin) && c.fin.before(fin));
-                }).count() > 0) {
-            flash.error("Las citas se empalman");
-            render("/members/index");
-        }
-        if (validation.hasErrors()) {
-            render("/members/index");
-        }
-
-        Cita cita = new Cita();
-        cita.doctor = Seguridad.connected();
-        cita.paciente = Cliente.findById(pacienteId);
-        cita.inicio = inicio;
-        cita.fin = fin;
-        cita.proceso = new Proceso();
-
-        cita.save();
-        flash.success("Todo bien");
-        index();
+    public static void patient(){
+        render();
     }
 }
