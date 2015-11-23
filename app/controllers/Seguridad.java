@@ -14,9 +14,9 @@ import models.Usuario;
 public class Seguridad extends Secure.Security {
 
     static boolean authenticate(String username, String password) {
-        Usuario user = Usuario.find("byEmail", username).first();
-        return user != null && user.password.equals(password);
-//        return true;
+        //Usuario user = Usuario.find("byEmail", username).first();
+        //return user != null && user.password.equals(password);
+        return true;
     }
 
     static boolean check(String profile) {
