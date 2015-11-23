@@ -13,7 +13,7 @@ import play.modules.morphia.Model;
 
 
 /**
- * @author Steve Chaloner (steve@objectify.be)
+ * Modelo que hace referencia a los permisos de los usuarios
  */
 @Entity
 public class Rol extends Model

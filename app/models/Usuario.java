@@ -13,8 +13,7 @@ import play.modules.morphia.Blob;
 import play.modules.morphia.Model;
 
 /**
- *
- * @author jesus
+ * Modelo que obtiene a los usuarios y hace el debido Login
  */
 @Entity
 public class Usuario extends Model{

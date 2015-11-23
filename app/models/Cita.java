@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
 import play.modules.morphia.Model;
 
 /**
+ * Modelo que obtiene las Citas realizadas por el Doctor
  *
- * @author jesus
  */
 @Entity
 public class Cita extends Model{

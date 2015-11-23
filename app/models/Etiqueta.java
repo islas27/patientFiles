@@ -11,8 +11,7 @@ import play.modules.morphia.Model;
 
 
 /**
- *
- * @author jesus
+ * Modelo que guardará las etiquetas de Adiccion, Inmunización y Patológico
  */
 @Entity
 public class Etiqueta extends Model{
@@ -22,10 +21,7 @@ public class Etiqueta extends Model{
     public String tipo;
 
     public Etiqueta (String name, String label, String tipo){
-        /*
-        *Aqui se alojarán las etiquetas donde se comprobará
-        *que cada 'tipo' seleccionado sea de los existentes por haber
-        */
+
         this.name = name;
         this.label = label;
         this.tipo = tipo;
