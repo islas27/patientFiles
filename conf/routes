@@ -15,6 +15,7 @@ GET     /members/myProfile                      Members.myProfile
 GET     /members/listPatients                   Members.listPatients
 GET     /members/newPatient                     Members.newPatient
 GET     /members/newProcedure                   Members.newProcedure
+GET     /members/patient                        Members.patient
 GET     /members/patient/{id}                   Members.patient
 POST    /members/newAppointment                 Members.newAppointment
 
