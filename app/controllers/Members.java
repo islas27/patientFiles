@@ -2,20 +2,15 @@ package controllers;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Month;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.List;
 import models.Cita;
 import models.Cliente;
 import models.Etiqueta;
 import models.ExpedienteMedico;
 import models.FamiliarResponsable;
-import models.Proceso;
 import models.Usuario;
-import play.data.validation.Required;
 import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.With;
@@ -81,12 +76,12 @@ public class Members extends Controller {
     }
 
     public static void newAppointment(String paciente,String razon, String fecha, String inittime, String endtime ){
-        LocalDateTime inicio = LocalDateTime.parse(fecha + "T" + inittime, DateTimeFormatter.ofPattern("dd/MM/yyyyTHH:mm"));
-        LocalDateTime fin = LocalDateTime.parse(fecha + "T" + endtime, DateTimeFormatter.ofPattern("dd/MM/yyyyTHH:mm"));
+        LocalDateTime inicio = LocalDateTime.parse(fecha + inittime, DateTimeFormatter.ofPattern("MM/dd/yyyyHH:mm"));
+        LocalDateTime fin = LocalDateTime.parse(fecha + endtime, DateTimeFormatter.ofPattern("MM/dd/yyyyHH:mm"));
 
-        if (fin.isBefore(inicio)) {
+        if (!inicio.isBefore(fin)) {
             flash.error("El inicio debe ir antes del fin");
-            render("/members/index");
+            index();
         }
         if (Cita.getCitasByDoctor(Seguridad.connected()).stream()
                 .filter(c -> {
@@ -94,14 +89,14 @@ public class Members extends Controller {
                     || (c.getInicioDate().isAfter(fin) && c.getFinDate().isBefore(fin));
                 }).count() > 0) {
             flash.error("Las citas se empalman");
-            render("/members/index");
+            index();
         }
         if (razon == null) {
             flash.error("Las citas deben tener alguna razon");
-            render("/members/index");
+            index();
         }
         if (validation.hasErrors()) {
-            render("/members/index");
+            index();
         }
 
         Cita cita = new Cita();
@@ -109,7 +104,6 @@ public class Members extends Controller {
         cita.paciente = Cliente.findById(paciente);
         cita.setInicioDate(inicio);
         cita.setFinDate(fin);
-        cita.proceso = new Proceso();
 
         cita.save();
         flash.success("Todo bien");
