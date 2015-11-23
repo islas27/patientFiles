@@ -1,5 +1,7 @@
 package models;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import org.mongodb.morphia.annotations.Entity;
 import java.util.*;
 
@@ -27,7 +29,7 @@ public class Cliente extends Model{
     public String apellidoMaterno;
 
     @Required
-    public Date fechaNacimiento;
+    public String fechaNacimiento;
 
     @Required
     public String pais;
@@ -70,6 +72,15 @@ public class Cliente extends Model{
 
     public static List<Cliente> getReferidos(String doctor){
         return Cliente.q().filter("referidos elem", doctor).asList();
+    }
+
+    public LocalDateTime getfechaNacimientoDate(){
+        return LocalDateTime.parse(this.fechaNacimiento, DateTimeFormatter.ISO_DATE_TIME);
+    }
+
+    public void  setfechaNacimientoDate(LocalDateTime date){
+        DateTimeFormatter formater = DateTimeFormatter.ISO_DATE_TIME;
+        this.fechaNacimiento = date.format(formater);
     }
 
     @Override

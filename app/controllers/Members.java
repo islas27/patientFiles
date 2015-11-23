@@ -92,6 +92,29 @@ public class Members extends Controller {
             String embarazo, String trimestre, String inmunizaciones,
             String vicios, String antecedentes) {
 
+        System.out.println("vicios");
+
+//        DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd MM yyyy");
+//
+//        FamiliarResponsable fm = new FamiliarResponsable(fnombre, fdomicilio, ftelefono);
+//        Cliente paciente = new Cliente();
+//        paciente.apellidoMaterno = apellidoMaterno;
+//        paciente.apellidoPaterno = apellidoPaterno;
+//        paciente.ciudad = ciudadNac;
+//        paciente.colonia = colonia;
+//        paciente.doctor = Seguridad.connected();
+//        paciente.domicilio = domicilio;
+//        paciente.esHombre = sexo.startsWith("H");
+//        paciente.estado = estadoNac;
+//        paciente.estadoCivil = edoCivil;
+//        paciente.setfechaNacimientoDate(LocalDateTime.parse(fechaNac, formater));
+//        paciente.nombre = nombre;
+//        paciente.ocupacion = ocupacion;
+//        paciente.pais = paisNac;
+//        paciente.telefono = telefono;
+//        paciente.save();
+//        ExpedienteMedico ex = new ExpedienteMedico(paciente, fm);
+
     }
 
     public static void newAppointment(String paciente, String razon, String fecha, String inittime, String endtime) {
