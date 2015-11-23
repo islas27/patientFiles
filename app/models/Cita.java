@@ -6,12 +6,13 @@
 
 package models;
 
-import java.util.Calendar;
-import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Reference;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Reference;
 import play.modules.morphia.Model;
 
 /**
@@ -31,12 +32,14 @@ public class Cita extends Model{
 
     public String doctor;
 
-    public Date inicio;
+    public String inicio;
 
-    public Date fin;
+    public String fin;
 
-    public static List<Cita> getCitasByDoctorAndDate(String doctor, Date date){
-        return getCitasByDoctor(doctor).stream().filter(c -> c.inicio.before(date))
+    public static List<Cita> getCitasByDoctorAndDate(String doctor, LocalDate today){
+        LocalDate tomorrow = today.plusDays(1);
+        return getCitasByDoctor(doctor).stream()
+                .filter(c -> {return c.getInicio().toLocalDate().isAfter(today) && c.getFin().toLocalDate().isBefore(tomorrow);})
                 .collect(Collectors.toList());
     }
 
@@ -46,6 +49,24 @@ public class Cita extends Model{
 
     public static List<Cita> getCitasByDoctor(String doctor){
         return Cita.filter("doctor", doctor).asList();
+    }
+
+    public LocalDateTime getInicio(){
+        return LocalDateTime.parse(this.inicio, DateTimeFormatter.ofPattern("yyyyMMddHHmm"));
+    }
+
+    public void  setInicio(LocalDateTime date){
+        DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
+        this.inicio = date.format(formater);
+    }
+
+    public LocalDateTime getFin(){
+        return LocalDateTime.parse(this.fin, DateTimeFormatter.ofPattern("yyyyMMddHHmm"));
+    }
+
+    public void  setFin(LocalDateTime date){
+        DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
+        this.fin = date.format(formater);
     }
 
     @Override
