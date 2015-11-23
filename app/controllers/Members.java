@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.TimeZone;
 import models.Cita;
 import models.Cliente;
+import models.Etiqueta;
+import models.ExpedienteMedico;
+import models.FamiliarResponsable;
 import models.Proceso;
 import models.Usuario;
 import play.data.validation.Required;
@@ -59,7 +62,13 @@ public class Members extends Controller {
     }
 
     public static void newPatient() {
-        render();
+        List<Etiqueta> inmunizaciones = Etiqueta.find("tipo", "Inmunizacion").asList();
+        List<Etiqueta> patologicos = Etiqueta.find("tipo", "Patologico").asList();
+        List<Etiqueta> adicciones = Etiqueta.find("tipo", "Adiccion").asList();
+        Cliente paciente = new Cliente();
+        FamiliarResponsable fr = new FamiliarResponsable(null, null, null);
+        ExpedienteMedico em = new ExpedienteMedico(paciente, fr);
+        render(em, patologicos, inmunizaciones, adicciones);
     }
 
     public static void newAppointment(String pacienteId,
