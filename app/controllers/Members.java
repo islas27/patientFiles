@@ -53,6 +53,7 @@ public class Members extends Controller {
             dias = ChronoUnit.DAYS.between(hoy, usuario.getCaducidadPlanDate());
             //dias = Period.between(hoy, usuario.getCaducidadPlanDate()).getMonths();
         }
+        System.out.println(Cita.getCitasByDoctor(Seguridad.connected()));
         render(pacientes, hojas, dias, citas, nCitas, lista);
     }
 
@@ -70,9 +71,20 @@ public class Members extends Controller {
         List<Etiqueta> patologicos = Etiqueta.find("tipo", "Patologico").asList();
         List<Etiqueta> adicciones = Etiqueta.find("tipo", "Adiccion").asList();
         Cliente paciente = new Cliente();
-        FamiliarResponsable fr = new FamiliarResponsable(null, null, null);
+        FamiliarResponsable fr = new FamiliarResponsable("", "", "");
         ExpedienteMedico em = new ExpedienteMedico(paciente, fr);
         render(em, patologicos, inmunizaciones, adicciones);
+    }
+
+    public static void createPatient(String nombre, String apellidoPaterno,
+            String apellidoMaterno, String fechaNac, String paisNac,
+            String estadoNac, String ciudadNac, String sexo, String edoCivil,
+            String ocupacion, String domicilio, String colonia, String telefono,
+            String fnombre, String fdomicilio, String ftelefono,
+            String motivoConsulta, String antecedentesFam, String higieneGral,
+            String embarazo, String trimestre, String inmunizaciones,
+            String vicios,  String antecedentes){
+
     }
 
     public static void newAppointment(String paciente,String razon, String fecha, String inittime, String endtime ){
