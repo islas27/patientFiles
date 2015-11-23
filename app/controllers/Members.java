@@ -3,9 +3,12 @@ package controllers;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 import models.Cita;
 import models.Cliente;
+import models.Proceso;
 import models.Usuario;
+import play.data.validation.Required;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -30,6 +33,7 @@ public class Members extends Controller {
         Long nCitas = hojas;
         hojas += citas.size();
         hojas += pacientes * 4;
+        List<Cliente> lista = Cliente.getPacientes(Seguridad.connected());
 
         Long dias = new Long(0);
 
@@ -42,7 +46,7 @@ public class Members extends Controller {
 
         }
 
-        render(pacientes, hojas, dias, citas, usuario, nCitas);
+        render(pacientes, hojas, dias, citas, usuario, nCitas, lista);
     }
 
     public static void listPatients() {
@@ -53,7 +57,35 @@ public class Members extends Controller {
         render();
     }
 
-    public static void newPatient(){
+    public static void newPatient() {
         render();
+    }
+
+    public static void newAppointment(String pacienteId,
+            @Required(message = "Es requerida una descripcion") String descripcion,
+            Date inicio, Date fin) {
+
+        if (Cita.getCitasByDoctor(Seguridad.connected()).stream()
+                .filter(c -> {
+                    return (c.inicio.after(inicio) && c.fin.before(inicio))
+                    || (c.inicio.after(fin) && c.fin.before(fin));
+                }).count() > 0) {
+            flash.error("Las citas se empalman");
+            render("/members/index");
+        }
+        if (validation.hasErrors()) {
+            render("/members/index");
+        }
+
+        Cita cita = new Cita();
+        cita.doctor = Seguridad.connected();
+        cita.paciente = Cliente.findById(pacienteId);
+        cita.inicio = inicio;
+        cita.fin = fin;
+        cita.proceso = new Proceso();
+
+        cita.save();
+        flash.success("Todo bien");
+        index();
     }
 }

@@ -16,6 +16,7 @@ GET     /members/listPatients                   Members.listPatients
 GET     /members/newPatient                     Members.newPatient
 GET     /members/newProcedure                   Members.newProcedure
 GET     /members/patient/{id}                   Members.patient
+POST    /members/newAppointment                 Members.newAppointment
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
