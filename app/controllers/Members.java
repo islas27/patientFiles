@@ -18,7 +18,6 @@ import play.mvc.With;
 /**
  * Created by islas on 11/16/15.
  */
-
 /**
  * Controlador de la ventana para miembro usuario de la pagina
  */
@@ -28,7 +27,7 @@ public class Members extends Controller {
 
     @Before
     static void setConnectedUser() {
-        if(Seguridad.isConnected()) {
+        if (Seguridad.isConnected()) {
             Usuario usuario = Usuario.find("byEmail", Seguridad.connected()).first();
             renderArgs.put("usuario", usuario);
         }
@@ -49,7 +48,7 @@ public class Members extends Controller {
 
         if (usuario.getCaducidadPlanDate() == null) {
             dias = 0L;
-        }else{
+        } else {
             dias = ChronoUnit.DAYS.between(hoy, usuario.getCaducidadPlanDate());
             //dias = Period.between(hoy, usuario.getCaducidadPlanDate()).getMonths();
         }
@@ -63,7 +62,14 @@ public class Members extends Controller {
     }
 
     public static void myProfile() {
-        render();
+        Usuario usuario = Usuario.ByEmail(Seguridad.connected());
+        Long npac = Cliente.getPacientes(usuario.email).stream().count();
+        Long ncit = Cita.getCitasByDoctor(usuario.email).stream().count();
+        Long nhoj = ncit  + npac*4;
+        DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd MM yyyy");
+        String caducidad = usuario.getCaducidadPlanDate().format(formater);
+        String registro = LocalDate.ofEpochDay(usuario._getCreated()).format(formater);
+        render(npac, ncit, nhoj, caducidad, registro);
     }
 
     public static void newPatient() {
@@ -83,11 +89,11 @@ public class Members extends Controller {
             String fnombre, String fdomicilio, String ftelefono,
             String motivoConsulta, String antecedentesFam, String higieneGral,
             String embarazo, String trimestre, String inmunizaciones,
-            String vicios,  String antecedentes){
+            String vicios, String antecedentes) {
 
     }
 
-    public static void newAppointment(String paciente,String razon, String fecha, String inittime, String endtime ){
+    public static void newAppointment(String paciente, String razon, String fecha, String inittime, String endtime) {
         LocalDateTime inicio = LocalDateTime.parse(fecha + inittime, DateTimeFormatter.ofPattern("MM/dd/yyyyHH:mm"));
         LocalDateTime fin = LocalDateTime.parse(fecha + endtime, DateTimeFormatter.ofPattern("MM/dd/yyyyHH:mm"));
 
@@ -122,11 +128,11 @@ public class Members extends Controller {
         index();
     }
 
-    public static void patient(){
+    public static void patient() {
         render();
     }
 
-    public static void patient(String id){
+    public static void patient(String id) {
         render();
     }
 }
