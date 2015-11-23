@@ -14,11 +14,9 @@
                     <label for="select-paciente" class="control-label col-xs-3">Seleccione</label>
                     <div class="col-xs-9">
                         <select id="paciente" name="paciente" class="chosen-select">
-                            <option value="">Seleccione un paciente</option>
-                            <option value="Sancho Panza Perez">Sancho Panza Perez</option>
-                            <option value="Eustacio Perez Galindo">Eustacio Perez Galindo</option>
-                            <option value="Eutanacia Lopez Guerra">Eutanacia Lopez Guerra</option>
-                            <option value="Eusebio Guaxiola Ramirez">Eusebio Guaxiola Ramirez</option>
+                            #{list items:_lis, as:'paciente'}
+                                <option value="&{paciente.getIdAsStr()}">&{paciente.nombre + " " + paciente.apellidoPaterno}</option>
+                            #{/list}
                         </select>
                     </div>
                 </div>
