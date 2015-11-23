@@ -18,7 +18,6 @@
 
 
 <!--=========================PAGE CONTENT========================-->
-<form role="form" action="#">
 
     <div class="col-lg-12">
         <div class="ibox">
@@ -30,7 +29,7 @@
                 <p>
                     A continuación escriba y seleccione la informacion que desee ingresar al sistema de su paciente
                 </p>
-                #{form @Members.createPatient(), method:'post', id:'new-patient-form'}
+                #{form @Members.createPatient()}
                 <div id="patient-form">
                     <h3>Información Personal</h3>
                     <section>
@@ -287,7 +286,7 @@
                             #{field 'inmunizaciones'}  <!-- PENDIENTE -->
                             <label class="control-label col-sm-4">Inmunizaciones</label>
                             <div class="col-sm-6">
-                                <select data-placeholder="Seleccione" class="chosen-select" multiple tabindex="-1" style="display: none;" name="${field.name}">
+                                <select data-placeholder="Seleccione" class="chosen-select" multiple tabindex="-1" style="display: none;" name="${field.name}[]">
                                     #{list items:inmunizaciones, as:'i'}
                                         <option value="${i.name}">${i.name}</option>
                                     #{/list}
@@ -300,7 +299,7 @@
                             #{field 'vicios'} <!-- PENDIENTE -->
                             <label class="control-label col-sm-4 ">Vicios</label>
                             <div class="col-sm-6">
-                                <select data-placeholder="Seleccione" class="chosen-select" multiple tabindex="-1" style="display: none;" name="${field.name}">
+                                <select data-placeholder="Seleccione" class="chosen-select" multiple tabindex="-1" style="display: none;" name="${field.name}[]">
                                     #{list items:adicciones, as:'i'}
                                         <option value="${i.name}">${i.name}</option>
                                     #{/list}
@@ -313,21 +312,21 @@
                     <section>
                         #{field 'antecedentes'}
                         <select data-placeholder="Seleccione" multiple id="antecedentes_patologicos" class="chosen-select"
-                        required name="${field.name}">
+                        required name="${field.name}[]">
                             #{list items:patologicos, as:'i'}
-                                <option value="${i.name}">${i.name}</option>
+                                <option value="${i.name}">${i.label}</option>
                             #{/list}
                         </select>
                         #{/field}
                         <p><br><b>Nota:</b> Sostenga la tecla CTRL o CMD ⌘ para evitar se cierre el selector.</p>
+                        <p>Al finalizar, de clic a continuación para guardar todo</p>
+                        <input class="btn btn-primary" type="submit" value="Guardar">
                     </section>
                 </div>
                 #{/form}
             </div>
         </div>
     </div>
-</form>
-
 
 #{set 'moreScripts'}
 <script src="@{'/public/js/plugins/staps/jquery.steps.min.js'}"></script>
@@ -340,13 +339,8 @@
             bodyTag: "section",
             stepsOrientation: "vertical",
             enableAllSteps: true,
-            onFinished: function (event, currentIndex)
-            {
-                var form = $('#new-patient-form');
-
-                // Submit form input
-                form.submit();
-            }
+            enableCancelButton: false,
+            enableFinishButton: false
         });
         $(".chosen-select").chosen({
             width:"100%",
