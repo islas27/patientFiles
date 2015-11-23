@@ -50,7 +50,8 @@ public class Members extends Controller {
     }
 
     public static void listPatients() {
-        render();
+        List<Cliente> lista = Cliente.getPacientes(Seguridad.connected());
+        render(lista);
     }
 
     public static void myProfile() {
