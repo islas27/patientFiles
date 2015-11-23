@@ -28,7 +28,7 @@ public class Usuario extends Model{
 
     public Date birthday;
 
-    public Blob foto;
+    //public Blob foto;
 
     @Reference
     public Rol rol;
