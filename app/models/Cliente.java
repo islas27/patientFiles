@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.mongodb.morphia.annotations.Entity;
 import java.util.*;
+import java.time.LocalDate;
 
 import play.data.validation.*;
 import play.modules.morphia.Model;
@@ -74,12 +75,12 @@ public class Cliente extends Model{
         return Cliente.q().filter("referidos elem", doctor).asList();
     }
 
-    public LocalDateTime getfechaNacimientoDate(){
-        return LocalDateTime.parse(this.fechaNacimiento, DateTimeFormatter.ISO_DATE_TIME);
+    public LocalDate getfechaNacimientoDate(){
+        return LocalDate.parse(this.fechaNacimiento, DateTimeFormatter.ISO_DATE);
     }
 
-    public void  setfechaNacimientoDate(LocalDateTime date){
-        DateTimeFormatter formater = DateTimeFormatter.ISO_DATE_TIME;
+    public void  setfechaNacimientoDate(LocalDate date){
+        DateTimeFormatter formater = DateTimeFormatter.ISO_DATE;
         this.fechaNacimiento = date.format(formater);
     }
 

@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
+import java.time.Period;
 import models.Cita;
 import models.Cliente;
 import models.Etiqueta;
@@ -134,7 +135,8 @@ public class Members extends Controller {
     public static void patient(String id){
         Cliente paciente = Cliente.findById(id);
         ExpedienteMedico em = ExpedienteMedico.find("paciente", paciente).first();
-        render(em);
+        Integer edad = Period.between(paciente.getfechaNacimientoDate(), LocalDate.now()).getYears();
+        render(em, paciente, edad);
     }
 
     public static void newProcedure(){

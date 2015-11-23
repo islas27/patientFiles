@@ -330,7 +330,7 @@ Usuario(D1):
     rol: Free_user
 
 Usuario(D2):
-    email: rojo@hotmail.com
+      email: rojo@hotmail.com
     password: rojo
     name: Rojo
     lastName: Azul
@@ -419,7 +419,7 @@ Cliente(CLI4):
     correo: doctormuelitas@hotmail.com
     doctor: rojo@hotmail.com
 
-Cliente(CLI4):
+Cliente(CLI5):
     nombre: Apio
     apellidoPaterno: Lechuga
     apellidoMaterno: Pepino
