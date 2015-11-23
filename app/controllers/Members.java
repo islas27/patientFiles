@@ -76,10 +76,7 @@ public class Members extends Controller {
         List<Etiqueta> inmunizaciones = Etiqueta.find("tipo", "Inmunizacion").asList();
         List<Etiqueta> patologicos = Etiqueta.find("tipo", "Patologico").asList();
         List<Etiqueta> adicciones = Etiqueta.find("tipo", "Adiccion").asList();
-        //Cliente paciente = new Cliente();
-        //FamiliarResponsable fr = new FamiliarResponsable("", "", "");
-        //ExpedienteMedico em = new ExpedienteMedico(paciente, fr);
-        render(/*em,*/ patologicos, inmunizaciones, adicciones);
+        render(patologicos, inmunizaciones, adicciones);
     }
 
     public static void createPatient(String nombre, String apellidoPaterno,
@@ -90,11 +87,30 @@ public class Members extends Controller {
             String motivoConsulta, String antecedentesFam, String higieneGral,
             String embarazo, String trimestre, List<String> inmunizaciones,
             String vicios, List<String> antecedentes) {
-        System.out.println("submit");
-        System.out.println(vicios);
-        System.out.println(antecedentes.toString());
-        System.out.println(inmunizaciones);
-        //newPatient();
+        Cliente paciente = new Cliente();
+        FamiliarResponsable fr = new FamiliarResponsable(fnombre, fdomicilio, ftelefono);
+        ExpedienteMedico em = new ExpedienteMedico(paciente, fr);
+
+        paciente.nombre = nombre;
+
+        paciente.apellidoMaterno = apellidoMaterno;
+        paciente.apellidoPaterno = apellidoPaterno;
+        paciente.ciudad = ciudadNac;
+        paciente.colonia =  colonia;
+        paciente.doctor = Seguridad.connected();
+        paciente.fecha = fechaNac;
+        paciente.estado = estadoNac;
+        paciente.sexo = sexo;
+        paciente.pais = paisNac;
+        paciente.edoCivil = edoCivil;
+        paciente.ocupacion = ocupacion;
+        paciente.domicilio = domicilio;
+        paciente.telefono = telefono;
+        em.inmunizaciones = inmunizaciones;
+        em.antecedentes = antecedentes;
+        em.adicciones = adicciones;
+
+        newPatient();
     }
 
     public static void newAppointment(String paciente, String razon, String fecha, String inittime, String endtime) {
