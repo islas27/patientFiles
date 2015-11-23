@@ -28,4 +28,8 @@ public class Application extends Controller {
         MembersArea.index();
     }*/
 
+    public static void testing(){
+        render();
+    }
+
 }

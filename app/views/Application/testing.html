@@ -3,50 +3,51 @@
 
 #{set 'moreStyles'}
 <link href="@{'/public/css/plugins/clockpicker/clockpicker.css'}" rel="stylesheet">
-    <link href="@{'/public/css/plugins/datapicker/datepicker3.css'}" rel="stylesheet">
-    <link href="@{'/public/css/plugins/chosen/chosen.css'}" rel="stylesheet">
+<link href="@{'/public/css/plugins/datapicker/datepicker3.css'}" rel="stylesheet">
+<link href="@{'/public/css/plugins/chosen/chosen.css'}" rel="stylesheet">
 
-    <style>
-        .clockpicker-popover {
-            z-index: 999999;
-        }
-        .chosen-container-single .chosen-single {
-            width: 200px;
-        }
-        .chosen-container .chosen-drop {
-            width: 200px;
-        }
-        .datepicker-dropdown {
-            z-index: 999999 !important;
-        }
+<style>
+    .clockpicker-popover {
+        z-index: 999999;
+    }
+    .chosen-container-single .chosen-single {
+        width: 200px;
+    }
+    .chosen-container .chosen-drop {
+        width: 200px;
+    }
+    .datepicker-dropdown {
+        z-index: 999999 !important;
+    }
 
-        textarea {
-            resize: none;
-        }
-    </style>
+    textarea {
+        resize: none;
+    }
+
+</style>
 #{/set}
 
 <!--=========================PAGE CONTENT========================-->
 
-#{citaMembers lis:lista/}
+#{citaMembers/}
 
 <div class="col-lg-4">
     <div class="">
         <div class="widget-head-color-box navy-bg p-lg text-center">
             <div class="m-b-md">
                 <h2 class="font-bold no-margins">
-                    Dr. &{usuario.name} &{usuario.lastName}
+                    Dr. Alex Smith
                 </h2>
             </div>
-            <img src="@{'/public/img/male1ch.png'}" class="img-circle circle-border m-b-md" alt="profile">
+            <img src="@{'/public/img/a4.jpg'}" class="img-circle circle-border m-b-md" alt="profile">
             <div>
-                <span><i class="fa fa-user"></i> &{pacientes} Pacientes </span> |
-                <span><i class="fa fa-list-alt"></i> &{nCitas} Citas</span><br>
-                <span><i class="fa fa-calendar-o"></i> &{dias} dias restantes</span>
+                <span><i class="fa fa-user"></i> 100 Pacientes </span> |
+                <span><i class="fa fa-list-alt"></i> 350 Citas</span><br>
+                <span><i class="fa fa-calendar-o"></i> 60 dias restantes</span>
             </div>
         </div>
         <div class="widget-text-box">
-            <h4 class="media-heading">Dr. &{usuario.name} &{usuario.lastName}</h4>
+            <h4 class="media-heading">Dr. Alex Smith</h4>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
         </div>
     </div>
