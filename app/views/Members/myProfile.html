@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-#{set 'user'}
-Dr. &{usuario.name} &{usuario.lastName}
-#{/set}
-
-=======
 #{set 'user'} Dr. &{usuario.name} &{usuario.lastName} #{/set}
->>>>>>> origin/develop
 #{extends 'mainMembers.html'/}
 #{set title:'PatientFiles | Mi Perfil'/}
 
@@ -45,18 +38,29 @@ Dr. &{usuario.name} &{usuario.lastName}
                     <thead>
                     <tr>
                         <th></th>
-                        <th>Nombre Completo</th>
-                        <th>Correo</th>
-                        <th>Cumpleaños</th>
-                        <th>Fecha de Registro</th>
+                        <th>Campos</th>
+                        <th>Información</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td></td>
+                        <td>Nombre Completo</td>
                         <td>${usuario.name} ${usuario.lastName}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Correo</td>
                         <td>${usuario.email}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Cumpleaños</td>
                         <td>${usuario.birthday}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Fecha de Registro</td>
                         <td>22</td>
                     </tr>
                     </tbody>
@@ -103,22 +107,12 @@ Dr. &{usuario.name} &{usuario.lastName}
                     <tbody>
                     <tr>
                         <td></td>
+                        #{if usuario.rol.roleName != Free}
                         <td>${usuario.rol.roleName}</td>
+                        #{/if}
                         <td>${npac}</td>
                         <td>${ncit}</td>
                     </tr>
-                    <!--<tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>-->
                     </tbody>
                 </table>
 
