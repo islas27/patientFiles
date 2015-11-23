@@ -16,6 +16,7 @@ import models.FamiliarResponsable;
 import models.Proceso;
 import models.Usuario;
 import play.data.validation.Required;
+import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -29,6 +30,14 @@ import play.mvc.With;
 @With(Secure.class)
 @Check("Member")
 public class Members extends Controller {
+
+    @Before
+    static void setConnectedUser() {
+        if(Seguridad.isConnected()) {
+            Usuario usuario = Usuario.find("byEmail", Seguridad.connected()).first();
+            renderArgs.put("usuario", usuario);
+        }
+    }
 
     public static void index() {
         LocalDate hoy = LocalDate.now();
@@ -49,7 +58,7 @@ public class Members extends Controller {
             dias = ChronoUnit.DAYS.between(hoy, usuario.getCaducidadPlanDate());
             //dias = Period.between(hoy, usuario.getCaducidadPlanDate()).getMonths();
         }
-        render(pacientes, hojas, dias, citas, usuario, nCitas, lista);
+        render(pacientes, hojas, dias, citas, nCitas, lista);
     }
 
     public static void listPatients() {
