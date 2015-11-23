@@ -89,4 +89,8 @@ public class Members extends Controller {
         flash.success("Todo bien");
         index();
     }
+
+    public static void patient(){
+        render();
+    }
 }
