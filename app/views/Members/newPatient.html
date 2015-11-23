@@ -287,9 +287,9 @@
                             <label class="control-label col-sm-4">Inmunizaciones</label>
                             <div class="col-sm-6">
                                 <select data-placeholder="Seleccione" class="chosen-select" multiple tabindex="-1" style="display: none;" name="${field.name}">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
+                                    #{list items:inmunizaciones, as:'i'}
+                                        <option value="${i.name}">${i.name}</option>
+                                    #{/list}
                                 </select>
                             </div>
                             #{/field}
@@ -300,9 +300,9 @@
                             <label class="control-label col-sm-4 ">Vicios</label>
                             <div class="col-sm-6">
                                 <select data-placeholder="Seleccione" class="chosen-select" multiple tabindex="-1" style="display: none;" name="${field.name}">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
+                                    #{list items:adicciones, as:'i'}
+                                        <option value="${i.name}">${i.name}</option>
+                                    #{/list}
                                 </select>
                             </div>
                             #{/field}
@@ -313,9 +313,9 @@
                         #{field 'antecedentes'}
                         <select data-placeholder="Seleccione" multiple id="antecedentes_patologicos" class="chosen-select"
                         required name="${field.name}">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            #{list items:patologicos, as:'i'}
+                                <option value="${i.name}">${i.name}</option>
+                            #{/list}
                         </select>
                         #{/field}
                         <p><br><b>Nota:</b> Sostenga la tecla CTRL o CMD ⌘ para evitar se cierre el selector.</p>
