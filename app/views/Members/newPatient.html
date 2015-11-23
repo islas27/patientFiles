@@ -29,7 +29,7 @@
                 <p>
                     A continuación escriba y seleccione la informacion que desee ingresar al sistema de su paciente
                 </p>
-
+                #{form @Members.createPatient, method:'post', id:'new-patient-form' }
                 <div id="patient-form">
                     <h3>Información Personal</h3>
                     <section>
@@ -321,6 +321,7 @@
                         <p><br><b>Nota:</b> Sostenga la tecla CTRL o CMD ⌘ para evitar se cierre el selector.</p>
                     </section>
                 </div>
+                #{/form}
             </div>
         </div>
     </div>

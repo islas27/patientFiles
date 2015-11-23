@@ -113,4 +113,8 @@ public class Members extends Controller {
     public static void patient(String id){
         render();
     }
+
+    public static void newProcedure(){
+        render();
+    }
 }
