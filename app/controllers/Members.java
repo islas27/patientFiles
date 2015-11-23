@@ -77,10 +77,10 @@ public class Members extends Controller {
         List<Etiqueta> inmunizaciones = Etiqueta.find("tipo", "Inmunizacion").asList();
         List<Etiqueta> patologicos = Etiqueta.find("tipo", "Patologico").asList();
         List<Etiqueta> adicciones = Etiqueta.find("tipo", "Adiccion").asList();
-        Cliente paciente = new Cliente();
-        FamiliarResponsable fr = new FamiliarResponsable("", "", "");
-        ExpedienteMedico em = new ExpedienteMedico(paciente, fr);
-        render(em, patologicos, inmunizaciones, adicciones);
+        //Cliente paciente = new Cliente();
+        //FamiliarResponsable fr = new FamiliarResponsable("", "", "");
+        //ExpedienteMedico em = new ExpedienteMedico(paciente, fr);
+        render(/*em,*/ patologicos, inmunizaciones, adicciones);
     }
 
     public static void createPatient(String nombre, String apellidoPaterno,
@@ -89,32 +89,13 @@ public class Members extends Controller {
             String ocupacion, String domicilio, String colonia, String telefono,
             String fnombre, String fdomicilio, String ftelefono,
             String motivoConsulta, String antecedentesFam, String higieneGral,
-            String embarazo, String trimestre, String inmunizaciones,
-            String vicios, String antecedentes) {
-
-        System.out.println("vicios");
-
-//        DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd MM yyyy");
-//
-//        FamiliarResponsable fm = new FamiliarResponsable(fnombre, fdomicilio, ftelefono);
-//        Cliente paciente = new Cliente();
-//        paciente.apellidoMaterno = apellidoMaterno;
-//        paciente.apellidoPaterno = apellidoPaterno;
-//        paciente.ciudad = ciudadNac;
-//        paciente.colonia = colonia;
-//        paciente.doctor = Seguridad.connected();
-//        paciente.domicilio = domicilio;
-//        paciente.esHombre = sexo.startsWith("H");
-//        paciente.estado = estadoNac;
-//        paciente.estadoCivil = edoCivil;
-//        paciente.setfechaNacimientoDate(LocalDateTime.parse(fechaNac, formater));
-//        paciente.nombre = nombre;
-//        paciente.ocupacion = ocupacion;
-//        paciente.pais = paisNac;
-//        paciente.telefono = telefono;
-//        paciente.save();
-//        ExpedienteMedico ex = new ExpedienteMedico(paciente, fm);
-
+            String embarazo, String trimestre, List<String> inmunizaciones,
+            String vicios, List<String> antecedentes) {
+        System.out.println("submit");
+        System.out.println(vicios);
+        System.out.println(antecedentes.toString());
+        System.out.println(inmunizaciones);
+        //newPatient();
     }
 
     public static void newAppointment(String paciente, String razon, String fecha, String inittime, String endtime) {
