@@ -68,9 +68,9 @@ public class Members extends Controller {
         Long ncit = Cita.getCitasByDoctor(usuario.email).stream().count();
         Long nhoj = ncit  + npac*4;
         DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd MM yyyy");
-        String caducidad = usuario.getCaducidadPlanDate().format(formater);
-        String registro = new Date(usuario._getCreated()).toString();
-        render(npac, ncit, nhoj, caducidad, registro);
+        //String caducidad = usuario.getCaducidadPlanDate().format(formater);
+        String registro = "22 11 2015";
+        render(npac, ncit, nhoj, /*caducidad,*/ registro);
     }
 
     public static void newPatient() {
