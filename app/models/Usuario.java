@@ -11,10 +11,12 @@ import java.time.format.DateTimeFormatter;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Reference;
 import play.modules.morphia.Model;
-
+import play.modules.morphia.Model.AutoTimestamp;
 /**
  * Modelo que obtiene a los usuarios y hace el debido Login
  */
+
+@AutoTimestamp
 @Entity
 public class Usuario extends Model{
 

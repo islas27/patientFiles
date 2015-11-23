@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.List;
 import models.Cita;
 import models.Cliente;
@@ -68,7 +69,7 @@ public class Members extends Controller {
         Long nhoj = ncit  + npac*4;
         DateTimeFormatter formater = DateTimeFormatter.ofPattern("dd MM yyyy");
         String caducidad = usuario.getCaducidadPlanDate().format(formater);
-        String registro = LocalDate.ofEpochDay(usuario._getCreated()).format(formater);
+        String registro = new Date(usuario._getCreated()).toString();
         render(npac, ncit, nhoj, caducidad, registro);
     }
 
