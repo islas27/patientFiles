@@ -10,7 +10,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Reference;
-import play.modules.morphia.Blob;
 import play.modules.morphia.Model;
 
 /**
@@ -46,14 +45,14 @@ public class Usuario extends Model{
 
     public LocalDate getBirthdayDate(){
         try{
-            return LocalDate.parse(this.birthday, DateTimeFormatter.ofPattern("yyyyMMdd"));
+            return LocalDate.parse(this.birthday, DateTimeFormatter.ISO_DATE);
         }catch (Exception ex) {
             return null;
         }
     }
 
     public void  setBirthdayDate(LocalDate date){
-        DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyyMMdd");
+        DateTimeFormatter formater = DateTimeFormatter.ISO_DATE;
         this.birthday = date.format(formater);
     }
 
@@ -62,14 +61,15 @@ public class Usuario extends Model{
             return null;
         }
         try{
-        return LocalDate.parse(this.caducidadPlan, DateTimeFormatter.ofPattern("yyyyMMdd"));
+            return LocalDate.parse(this.caducidadPlan, DateTimeFormatter.ISO_DATE);
         }catch (Exception ex) {
+            System.out.println(ex);
             return null;
         }
     }
 
     public void  setCaducidadPlanDate(LocalDate date){
-        DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyyMMdd");
+        DateTimeFormatter formater = DateTimeFormatter.ISO_DATE;
         this.caducidadPlan = date.format(formater);
     }
 

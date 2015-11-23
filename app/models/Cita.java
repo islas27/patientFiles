@@ -52,20 +52,20 @@ public class Cita extends Model{
     }
 
     public LocalDateTime getInicioDate(){
-        return LocalDateTime.parse(this.inicio, DateTimeFormatter.ofPattern("yyyyMMddHHmm"));
+        return LocalDateTime.parse(this.inicio, DateTimeFormatter.ISO_DATE_TIME);
     }
 
     public void  setInicioDate(LocalDateTime date){
-        DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
+        DateTimeFormatter formater = DateTimeFormatter.ISO_DATE_TIME;
         this.inicio = date.format(formater);
     }
 
     public LocalDateTime getFinDate(){
-        return LocalDateTime.parse(this.fin, DateTimeFormatter.ofPattern("yyyyMMddHHmm"));
+        return LocalDateTime.parse(this.fin, DateTimeFormatter.ISO_DATE_TIME);
     }
 
     public void  setFinDate(LocalDateTime date){
-        DateTimeFormatter formater = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
+        DateTimeFormatter formater = DateTimeFormatter.ISO_DATE_TIME;
         this.fin = date.format(formater);
     }
 
