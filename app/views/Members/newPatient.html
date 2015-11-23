@@ -339,7 +339,14 @@
             headerTag: "h3",
             bodyTag: "section",
             stepsOrientation: "vertical",
-            enableAllSteps: true
+            enableAllSteps: true,
+            onFinished: function (event, currentIndex)
+            {
+                var form = $('#new-patient-form');
+
+                // Submit form input
+                form.submit();
+            }
         });
         $(".chosen-select").chosen({
             width:"100%",
