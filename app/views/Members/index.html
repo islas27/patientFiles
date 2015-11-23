@@ -3,27 +3,27 @@
 
 #{set 'moreStyles'}
 <link href="@{'/public/css/plugins/clockpicker/clockpicker.css'}" rel="stylesheet">
-    <link href="@{'/public/css/plugins/datapicker/datepicker3.css'}" rel="stylesheet">
-    <link href="@{'/public/css/plugins/chosen/chosen.css'}" rel="stylesheet">
+<link href="@{'/public/css/plugins/datapicker/datepicker3.css'}" rel="stylesheet">
+<link href="@{'/public/css/plugins/chosen/chosen.css'}" rel="stylesheet">
 
-    <style>
-        .clockpicker-popover {
-            z-index: 999999;
-        }
-        .chosen-container-single .chosen-single {
-            width: 200px;
-        }
-        .chosen-container .chosen-drop {
-            width: 200px;
-        }
-        .datepicker-dropdown {
-            z-index: 999999 !important;
-        }
+<style>
+    .clockpicker-popover {
+        z-index: 999999;
+    }
+    .chosen-container-single .chosen-single {
+        width: 200px;
+    }
+    .chosen-container .chosen-drop {
+        width: 200px;
+    }
+    .datepicker-dropdown {
+        z-index: 999999 !important;
+    }
 
-        textarea {
-            resize: none;
-        }
-    </style>
+    textarea {
+        resize: none;
+    }
+</style>
 #{/set}
 
 <!--=========================PAGE CONTENT========================-->
@@ -60,6 +60,7 @@
         <div class="ibox-content">
             <div class="panel-body">
                 <div class="panel-group" id="accordion">
+                    #{if citas.size() > 0}
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h5 class="panel-title">
@@ -96,15 +97,29 @@
                             </div>
                         </div>
                     </div>
+                    #{/if}
+                    #{else}
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                ¡No hay pendientes el día de hoy!
+                            </div>
+                            <div class="panel-body">
+                                <p>¡Aprovecha en administrar tu dia!</p>
+                            </div>
+                        </div>
+                    </div>
+                    #{/else}
                 </div>
             </div>
-        </div>
-        <div class="ibox-footer">
-            <button class="btn btn-sm btn-outline btn-warning">Editar Cita</button>
-            <button class="btn btn-sm btn-outline btn-primary pull-right" id="button-new-ap">Nueva cita</button>
+            <div class="ibox-footer">
+                <button class="btn btn-sm btn-outline btn-warning">Editar Cita</button>
+                <button class="btn btn-sm btn-outline btn-primary pull-right" id="button-new-ap">Nueva cita</button>
+            </div>
         </div>
     </div>
 </div>
+
 #{set 'moreScripts'}
 <!-- Chosen -->
 <script src="@{'/public/js/plugins/chosen/chosen.jquery.js'}"></script>
