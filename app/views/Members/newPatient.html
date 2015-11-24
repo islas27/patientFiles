@@ -77,15 +77,11 @@
                             #{field 'paisNac'} <!-- PENDIENTE -->
                             <label class="control-label col-sm-4">Pais Nac.</label>
                             <div class="col-sm-8">
-                                <select class="form-control input-sm chosen-select" name="${field.name}">
+                                <select class="form-control input-sm chosen-select" name="${field.name}" value="Pais Nac.">
                                     <option value="Mexico">Mexico</option>
                                     <option value="United States" selected="selected">United States</option>
                                     <option value="Canada">Canada</option>
-                                    <option value="United Kingdom">United Kingdom</option>
-                                    <option value="Ireland">Ireland</option>
-                                    <option value="Australia">Australia</option>
-                                    <option value="New Zealand">New Zealand</option>
-                                    <option value="null">-------------------</option>
+                                    <option value="Otros">Otros</option>
                                 </select>
                             </div>
                             #{/field}
@@ -126,7 +122,7 @@
                             #{field 'sexo'} <!-- PENDIENTE -->
                             <label class="control-label             col-sm-4">Sexo</label>
                             <div class="col-sm-8">
-                                <select id="formInput32" class="form-control input-sm chosen-select" name="${field.name}">
+                                <select id="formInput32" class="form-control input-sm chosen-select" name="${field.name}" value="Sexo">
                                     <option>M</option>
                                     <option>F</option>
                                 </select>
@@ -139,7 +135,7 @@
                             #{field 'edoCivil'} <!-- PENDIENTE -->
                             <label class="control-label            col-sm-4">Edo. Civil</label>
                             <div class="col-sm-8">
-                                <select id="formInput40" class="form-control input-sm chosen-select" name="${field.name}">
+                                <select id="formInput40" class="form-control input-sm chosen-select" name="${field.name}" value ="Edo. Civil">
                                     <option>Soltero(a)</option>
                                     <option>Casado(a)</option>
                                     <option>Divorciado(a)</option>
@@ -245,12 +241,12 @@
                             <label class="control-label col-sm-4" >Higiene General</label>
                             <div class="col-sm-8">
                                 <select class="form-control input-sm  chosen-select" name="${field.name}">
-                                    <option>Excelente</option>
-                                    <option>Buena</option>
-                                    <option>Regular</option>
-                                    <option>Mala</option>
-                                    <option>Pesima</option>
-                                    <option>Nula</option>
+                                    <option value="Excelente">Excelente</option>
+                                    <option value="Buena">Buena</option>
+                                    <option value="Regular">Regular</option>
+                                    <option value="Mala">Mala</option>
+                                    <option value="Pesima">Pesima</option>
+                                    <option value="Nula">Nula</option>
                                 </select>
                             </div>
                             #{/field}
@@ -270,7 +266,8 @@
                             #{field 'trimestre'} <!-- PENDIENTE -->
                             <label class="control-label col-sm-4">Trimestre</label>
                             <div class="col-sm-6">
-                                <select class="form-control input-sm chosen-select" name="${field.name}">
+                                <select class="form-control input-sm chosen-select" name="${field.name}" value="Trimestre">
+                                    <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -288,7 +285,7 @@
                             <div class="col-sm-6">
                                 <select data-placeholder="Seleccione" class="chosen-select" multiple tabindex="-1" style="display: none;" name="${field.name}[]">
                                     #{list items:inmunizaciones, as:'i'}
-                                        <option value="${i.name}">${i.name}</option>
+                                        <option value="${i.name}">${i.label}</option>
                                     #{/list}
                                 </select>
                             </div>
@@ -301,7 +298,7 @@
                             <div class="col-sm-6">
                                 <select data-placeholder="Seleccione" class="chosen-select" multiple tabindex="-1" style="display: none;" name="${field.name}[]">
                                     #{list items:adicciones, as:'i'}
-                                        <option value="${i.name}">${i.name}</option>
+                                        <option value="${i.name}">${i.label}</option>
                                     #{/list}
                                 </select>
                             </div>

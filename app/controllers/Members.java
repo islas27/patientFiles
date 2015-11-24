@@ -81,15 +81,16 @@ public class Members extends Controller {
 
     public static void createPatient(String nombre, String apellidoPaterno,
             String apellidoMaterno, String fechaNac, String paisNac,
-            String estadoNac, String ciudadNac, String sexo, String edoCivil,
+            String estadoNac, String ciudadNac, String sexo, String estadoCivil,
             String ocupacion, String domicilio, String colonia, String telefono,
             String fnombre, String fdomicilio, String ftelefono,
             String motivoConsulta, String antecedentesFam, String higieneGral,
             String embarazo, String trimestre, List<String> inmunizaciones,
-            String vicios, List<String> antecedentes) {
+            List<String> vicios, List<String> antecedentes) {
         Cliente paciente = new Cliente();
         FamiliarResponsable fr = new FamiliarResponsable(fnombre, fdomicilio, ftelefono);
         ExpedienteMedico em = new ExpedienteMedico(paciente, fr);
+        HistorialMedico hm = new HistorialMedico(motivoConsulta, antecedentesFam, higieneGral, embarazo, trimestre, localDate.now(em, Seguridad.connected()));
 
         paciente.nombre = nombre;
 
@@ -98,17 +99,19 @@ public class Members extends Controller {
         paciente.ciudad = ciudadNac;
         paciente.colonia =  colonia;
         paciente.doctor = Seguridad.connected();
-        paciente.fecha = fechaNac;
+        paciente.setfechaNacimientoDate( LocalDate.parse(fechaNac, DateTimeFormatter.ofPattern("MM/dd/yyyy") ) );
         paciente.estado = estadoNac;
-        paciente.sexo = sexo;
+        paciente.esHombre = sexo.equals("M");
         paciente.pais = paisNac;
-        paciente.edoCivil = edoCivil;
+        paciente.estadoCivil = estadoCivil;
         paciente.ocupacion = ocupacion;
         paciente.domicilio = domicilio;
         paciente.telefono = telefono;
         em.inmunizaciones = inmunizaciones;
-        em.antecedentes = antecedentes;
-        em.adicciones = adicciones;
+        em.patologicos = antecedentes;
+        em.adicciones = vicios;
+        paciente.save();
+        em.save();
 
         newPatient();
     }
