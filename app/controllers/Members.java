@@ -90,7 +90,7 @@ public class Members extends Controller {
         Cliente paciente = new Cliente();
         FamiliarResponsable fr = new FamiliarResponsable(fnombre, fdomicilio, ftelefono);
         ExpedienteMedico em = new ExpedienteMedico(paciente, fr);
-        HistorialMedico hm = new HistorialMedico(motivoConsulta, antecedentesFam, higieneGral, embarazo, trimestre, localDate.now(em, Seguridad.connected()));
+        //HistorialMedico hm = new HistorialMedico(motivoConsulta, antecedentesFam, higieneGral, embarazo, trimestre, localDate.now(em, Seguridad.connected()));
 
         paciente.nombre = nombre;
 
