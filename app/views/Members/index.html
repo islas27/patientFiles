@@ -46,9 +46,15 @@
                 <span><i class="fa fa-calendar-o"></i> &{dias} dias restantes</span>
             </div>
         </div>
-        <div class="widget-text-box">
-            <h4 class="media-heading">Dr. &{usuario.name} &{usuario.lastName}</h4>
-            <p>Hojas: &{hojas}</p>
+        <div>
+            <p><br></p>
+            <div class="col-xs-4 text-center">
+                <i class="fa fa-trophy fa-5x"></i>
+            </div>
+            <div class="col-xs-8 text-right">
+                <span> Hojas ahorradas </span>
+                <h2 class="font-bold"> &{hojas}</h2>
+            </div>
         </div>
     </div>
 </div>
@@ -62,42 +68,22 @@
             <div class="panel-body">
                 <div class="panel-group" id="accordion">
                     #{if citas.size() > 0}
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h5 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" class="">Collapsible Group Item #1</a>
-                            </h5>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse in" aria-expanded="true" style="">
-                            <div class="panel-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                        #{list items:citas, as:'cita'}
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h5 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="&{cita.inicioDate}" aria-expanded="false" class="collapsed">&{cita.paciente.nombre} &{cita.paciente.apellidoPaterno} - Fecha y hora: &{cita.inicioDate}</a>
+                                    </h5>
+                                </div>
+                                <div id="&{cita.inicioDate}" class="panel-collapse collapse in" aria-expanded="false" style="">
+                                    <div class="panel-body">
+                                    &{cita.descripcion}
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed" aria-expanded="false">Collapsible Group Item #2</a>
-                            </h4>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false">
-                            <div class="panel-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed" aria-expanded="false">Collapsible Group Item #3</a>
-                            </h4>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse" aria-expanded="false">
-                            <div class="panel-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            </div>
-                        </div>
-                    </div>
+                        #{/list}
+
                     #{/if}
                     #{else}
                     <div class="col-lg-12">
@@ -115,7 +101,7 @@
             </div>
             <div class="ibox-footer">
                 <!--<button class="btn btn-sm btn-outline btn-warning">Editar Cita</button>-->
-                <button class="btn btn-sm btn-outline btn-primary pull-right" id="button-new-ap">Nueva cita</button>
+                <button class="btn btn-sm btn-outline btn-primary" id="button-new-ap">Nueva cita</button>
             </div>
         </div>
     </div>
