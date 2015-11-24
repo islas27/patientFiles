@@ -33,8 +33,8 @@ public class Application extends Controller {
         usuario.rol = Rol.find("roleName", "Free").first();
         usuario.setBirthdayDate(LocalDate.parse(birthday, DateTimeFormatter.ofPattern("MM/dd/yyyy")));
         usuario.save();
-        Seguridad.authenticate(email, password);
-        Members.index();
+        //Seguridad.authenticate(email, password);
+        Application.index();
     }
 
     public static void testing(){

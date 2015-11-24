@@ -114,8 +114,9 @@ public class Members extends Controller {
     }
 
     public static void newAppointment(String paciente, String razon, String fecha, String inittime, String endtime) {
-        LocalDateTime inicio = LocalDateTime.parse(fecha + inittime, DateTimeFormatter.ofPattern("MM/dd/yyyyHH:mm"));
-        LocalDateTime fin = LocalDateTime.parse(fecha + endtime, DateTimeFormatter.ofPattern("MM/dd/yyyyHH:mm"));
+        System.out.println(fecha);
+        LocalDateTime inicio = LocalDateTime.parse(fecha + inittime, DateTimeFormatter.ofPattern("dd/MM/yyyyHH:mm"));
+        LocalDateTime fin = LocalDateTime.parse(fecha + endtime, DateTimeFormatter.ofPattern("dd/MM/yyyyHH:mm"));
 
         if (!inicio.isBefore(fin)) {
             flash.error("El inicio debe ir antes del fin");
@@ -142,6 +143,7 @@ public class Members extends Controller {
         cita.paciente = Cliente.findById(paciente);
         cita.setInicioDate(inicio);
         cita.setFinDate(fin);
+        cita.descripcion = razon;
 
         cita.save();
         flash.success("Todo bien");
