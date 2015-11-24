@@ -15,46 +15,56 @@ Navbar que define los menús de navegación
           -->
        <h1 style="text-align: left">&nbspMódulo de Registro</h1>
         <br/>
-
-        <div class="col-md-6 col-xl-4">
+        #{form @Application.saveUser()}
+        <div class="col-md-6 col-lg-4">
           <div class="form-group has-icon-left form-control-name">
               #{field 'nombre'}
             <label class="sr-only" for="inputName">Tu Nombre</label>
-            <input type="text" class="form-control form-control-lg" id="inputName" placeholder="Tu Nombre">
+            <input name="nombre" type="text" class="form-control form-control-lg" id="inputName" placeholder="Tu Nombre">
             #{/field}
           </div>
           <div class="form-group has-icon-left form-control-email">
               #{field 'email'}
             <label class="sr-only" for="inputEmail">Dirección De Correo</label>
-            <input type="email" class="form-control form-control-lg" id="inputEmail" placeholder="Dirección De Correo" autocomplete="off">
+            <input name="email" type="email" class="form-control form-control-lg" id="inputEmail" placeholder="Dirección De Correo" autocomplete="off">
             #{/field}
           </div>
           <div class="form-group has-icon-left form-control-password">
               #{field 'password'}
             <label class="sr-only" for="inputPassword">Ingresa Una Contraseña</label>
-            <input type="password" class="form-control form-control-lg" id="inputPassword" placeholder="Ingresa Una Contraseña" autocomplete="off">
+            <input name="password" type="password" class="form-control form-control-lg" id="inputPassword" placeholder="Ingresa Una Contraseña" autocomplete="off">
             #{/field}
           </div>
+            <div class="form-group has-icon-left form-control-feedback">
+            #{field 'birthday'}
+                <label class="sr-only" for="inputPassword">Ingresa Fecha de Nacimiento</label>
+                <input name="birthday" type="text" class="form-control form-control-lg" id="inputFecha" placeholder="Fecha Nacimiento: mm/dd/yyyy" autocomplete="off">
+            #{/field}
+            </div>
           <button type="submit" class="btn btn-primary btn-block">¡Registro Gratuito!</button>
           <hr class="invisible">
         </div>
-
-        <div class="col-md-6 col-xl-4">
+        #{/form}
+        <div class="col-md-6 col-lg-4">
         </div>
 
           <!--
           División que mostrará los metodos para iniciar sesión de un metodo Social
           -->
-        <div class="col-md-6 col-xl-4">
+        <div class="col-md-6 col-lg-4">
           <hr class="invisible">
           <a href="#" class="btn btn-social btn-block bg-google">
-            <span class="icon-google"></span> Inicia Sesión Con Google
+            <span class="icon-google"></span> Registrate Con Google
           </a>
           <hr class="invisible">
           <a href="#" class="btn btn-social btn-block bg-linkedin">
-            <span class="icon-linkedin"></span> Inicia Sesión Con LinkedIn
+            <span class="icon-linkedin"></span> Registrate Con LinkedIn
           </a>
-          <hr class="invisible">
+            <hr class="invisible">
+            <a href="#" class="btn btn-social btn-block bg-facebook">
+                <span class="icon-linkedin"></span> Registrate Con Facebook
+            </a>
+          <!--<hr class="invisible">
           <div class="text-center">
             <a href="#" class="btn btn-social btn-social-icon btn-social-google">
               <span class="icon-google"></span>
@@ -62,15 +72,10 @@ Navbar que define los menús de navegación
             <a href="#" class="btn btn-social btn-social-icon btn-social-linkedin">
               <span class="icon-linkedin"></span>
             </a>
-          </div>
+          </div>-->
           <hr class="invisible">
         </div>
         <div class="clearfix hidden-xl-up"></div>
 
       </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <!-- only needed Bootstrap JS components + 3rd party plugins + custom -->
-    <script src="js/ls/landio.min.js"></script>
-  </body>
-</html>

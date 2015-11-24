@@ -27,13 +27,14 @@ public class Application extends Controller {
     public static void saveUser(String email, String password, String nombre, String birthday){
         Usuario usuario = new Usuario();
         usuario.email = email;
-        usuario.name = nombre;
+        usuario.name = nombre.split(" ")[0];
+        usuario.lastName = nombre.split(" ")[1];
         usuario.password = password;
-        usuario.lastName = "";
-        usuario.rol = Rol.find("rolName", "Free").first();
+        usuario.rol = Rol.find("roleName", "Free").first();
         usuario.setBirthdayDate(LocalDate.parse(birthday, DateTimeFormatter.ofPattern("MM/dd/yyyy")));
         usuario.save();
         Seguridad.authenticate(email, password);
+        Members.index();
     }
 
     public static void testing(){

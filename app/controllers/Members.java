@@ -1,21 +1,16 @@
 package controllers;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
-import java.util.List;
-import java.time.Period;
-import models.Cita;
-import models.Cliente;
-import models.Etiqueta;
-import models.ExpedienteMedico;
-import models.FamiliarResponsable;
-import models.Usuario;
+import models.*;
 import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.With;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 /**
  * Created by islas on 11/16/15.
@@ -85,12 +80,13 @@ public class Members extends Controller {
             String ocupacion, String domicilio, String colonia, String telefono,
             String fnombre, String fdomicilio, String ftelefono,
             String motivoConsulta, String antecedentesFam, String higieneGral,
-            String embarazo, String trimestre, List<String> inmunizaciones,
+            Boolean embarazo, String trimestre, List<String> inmunizaciones,
             List<String> vicios, List<String> antecedentes) {
         Cliente paciente = new Cliente();
         FamiliarResponsable fr = new FamiliarResponsable(fnombre, fdomicilio, ftelefono);
         ExpedienteMedico em = new ExpedienteMedico(paciente, fr);
-        HistorialMedico hm = new HistorialMedico(motivoConsulta, antecedentesFam, higieneGral, embarazo, trimestre, localDate.now(em, Seguridad.connected()));
+        HistorialMedico hm = new HistorialMedico(motivoConsulta, antecedentesFam, higieneGral, embarazo,
+                Integer.getInteger(trimestre),"", LocalDate.now(),em, Seguridad.connected());
 
         paciente.nombre = nombre;
 
@@ -112,6 +108,7 @@ public class Members extends Controller {
         em.adicciones = vicios;
         paciente.save();
         em.save();
+        hm.save();
 
         newPatient();
     }
