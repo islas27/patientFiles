@@ -11,6 +11,7 @@ import models.Cliente;
 import models.Etiqueta;
 import models.ExpedienteMedico;
 import models.FamiliarResponsable;
+import models.HistorialMedico;
 import models.Usuario;
 import play.mvc.Before;
 import play.mvc.Controller;
@@ -150,7 +151,8 @@ public class Members extends Controller {
     public static void patient(String id){
         Cliente paciente = Cliente.findById(id);
         ExpedienteMedico em = ExpedienteMedico.find("paciente", paciente).first();
-        render(em);
+        HistorialMedico hm = HistorialMedico.find("expediente", em).first();
+        render(em, hm);
     }
 
     public static void newProcedure(){
